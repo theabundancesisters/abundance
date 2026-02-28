@@ -10,62 +10,57 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        purple: {
-          950: "#0d0717",
-          900: "#1a0f24",
-          850: "#22142e",
-          800: "#2d1b3d",
-          700: "#3d2550",
-          600: "#48345e",
-          500: "#5e4478",
-          400: "#7a5a94",
-          300: "#9b7db5",
-          200: "#bea3d1",
-          100: "#dfc9eb",
+        cream: {
+          50:  "#fdfaf7",
+          100: "#f8f1ea",
+          200: "#f0e5d8",
+          300: "#e5d0be",
+        },
+        plum: {
+          950: "#1a0f24",
+          900: "#2d1b3d",
+          800: "#3d2550",
+          700: "#48345e",
+          600: "#5e4478",
+          500: "#7a5a94",
+          400: "#9b7db5",
+          300: "#bea3d1",
+          200: "#ddc9ec",
+          100: "#f0e8f9",
+          50:  "#faf5ff",
         },
         rose: {
+          600: "#b85c80",
+          500: "#c96e92",
           400: "#d9a4c7",
           300: "#e4bcd6",
-          200: "#efd3e6",
-          100: "#f8eef5",
+          200: "#f0d5e8",
+          100: "#faeef6",
         },
         gold: {
+          600: "#a8803a",
           500: "#c9a96e",
           400: "#d9bc8a",
           300: "#e8d0a8",
+          100: "#fdf6e8",
         },
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-mesh":
-          "radial-gradient(at 40% 20%, #48345e 0px, transparent 50%), radial-gradient(at 80% 0%, #2d1b3d 0px, transparent 50%), radial-gradient(at 0% 50%, #1a0f24 0px, transparent 50%), radial-gradient(at 80% 50%, #3d2550 0px, transparent 50%), radial-gradient(at 0% 100%, #0d0717 0px, transparent 50%)",
+        sans:  ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       animation: {
+        float:     "float 6s ease-in-out infinite",
         "fade-up": "fadeUp 0.6s ease-out forwards",
-        "fade-in": "fadeIn 0.8s ease-out forwards",
-        float: "float 6s ease-in-out infinite",
-        shimmer: "shimmer 2.5s linear infinite",
       },
       keyframes: {
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(30px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
+          "50%":       { transform: "translateY(-12px)" },
         },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
+        fadeUp: {
+          "0%":   { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
     },

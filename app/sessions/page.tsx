@@ -84,7 +84,7 @@ export default function SessionsPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 mesh-bg" />
+        <div className="absolute inset-0 hero-bg" />
         <div className="absolute top-1/4 left-1/3 w-72 h-72 rounded-full bg-rose-400/10 blur-3xl animate-float" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -108,7 +108,7 @@ export default function SessionsPage() {
             animate="visible"
             variants={fadeUp}
             custom={2}
-            className="text-white/60 text-lg max-w-2xl mx-auto mb-8"
+            className="text-plum-600 text-lg max-w-2xl mx-auto mb-8"
           >
             Deeply personal, divinely guided sessions tailored to your unique
             soul blueprint. No two sessions are the same.
@@ -127,7 +127,7 @@ export default function SessionsPage() {
       </section>
 
       {/* Session Types */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -155,13 +155,13 @@ export default function SessionsPage() {
                 >
                   {s.icon}
                 </div>
-                <div className="text-xs font-semibold tracking-widest uppercase text-white/30 mb-2">
+                <div className="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-2">
                   {s.tagline} · {s.duration}
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-white mb-4">
+                <h3 className="font-serif text-2xl font-bold text-plum-900 mb-4">
                   {s.title}
                 </h3>
-                <p className="text-white/55 leading-relaxed mb-6">
+                <p className="text-plum-600 leading-relaxed mb-6">
                   {s.description}
                 </p>
                 <a
@@ -180,8 +180,7 @@ export default function SessionsPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950 via-purple-900/20 to-purple-950" />
+      <section className="py-20 md:py-28 relative overflow-hidden section-alt">
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -210,8 +209,8 @@ export default function SessionsPage() {
                 <div className="font-serif text-4xl font-bold gradient-text-gold mb-4">
                   {step.step}
                 </div>
-                <h3 className="font-semibold text-white mb-3">{step.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{step.desc}</p>
+                <h3 className="font-semibold text-plum-900 mb-3">{step.title}</h3>
+                <p className="text-plum-500 text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -219,7 +218,7 @@ export default function SessionsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -228,10 +227,10 @@ export default function SessionsPage() {
             className="glass-card border border-rose-400/20 p-12"
           >
             <Sparkles className="w-8 h-8 text-rose-400 mx-auto mb-6" />
-            <h2 className="font-serif text-3xl font-bold text-white mb-4">
+            <h2 className="font-serif text-3xl font-bold text-plum-900 mb-4">
               Ready to Step Into Your Power?
             </h2>
-            <p className="text-white/50 mb-8">
+            <p className="text-plum-500 mb-8">
               Book a complimentary call to discover which session is the perfect
               fit for where you are right now.
             </p>

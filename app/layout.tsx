@@ -57,7 +57,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="min-h-screen bg-purple-950 text-white antialiased">
+      <body className="min-h-screen bg-cream-50 text-plum-900 antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />

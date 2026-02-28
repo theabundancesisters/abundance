@@ -62,7 +62,7 @@ export default function ConnectPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 mesh-bg" />
+        <div className="absolute inset-0 hero-bg" />
         <div className="absolute top-1/3 right-1/3 w-72 h-72 rounded-full bg-rose-400/10 blur-3xl animate-float" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -86,7 +86,7 @@ export default function ConnectPage() {
             animate="visible"
             variants={fadeUp}
             custom={2}
-            className="text-white/60 text-lg max-w-2xl mx-auto"
+            className="text-plum-600 text-lg max-w-2xl mx-auto"
           >
             Share your story. Ask your questions. Take the first step toward
             your transformation. We&apos;re here and ready.
@@ -95,7 +95,7 @@ export default function ConnectPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
 
@@ -110,10 +110,10 @@ export default function ConnectPage() {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-400/30 to-purple-600/30 flex items-center justify-center text-rose-300 mb-6">
                   <MessageCircle className="w-6 h-6" />
                 </div>
-                <h2 className="font-serif text-3xl font-bold text-white mb-3">
+                <h2 className="font-serif text-3xl font-bold text-plum-900 mb-3">
                   Let&apos;s Chat
                 </h2>
-                <p className="text-white/55 leading-relaxed mb-4">
+                <p className="text-plum-600 leading-relaxed mb-4">
                   Book a complimentary discovery call with the Sisters. Come
                   ready for your session by being in a quiet, undistracted
                   place.
@@ -140,18 +140,18 @@ export default function ConnectPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              <div className="glass-card border border-white/10 p-8 md:p-10 h-full">
+              <div className="glass-card border border-plum-100 p-8 md:p-10 h-full">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600/20 to-rose-400/20 flex items-center justify-center text-purple-300 mb-6">
                   <Mail className="w-6 h-6" />
                 </div>
-                <h2 className="font-serif text-3xl font-bold text-white mb-3">
+                <h2 className="font-serif text-3xl font-bold text-plum-900 mb-3">
                   Prefer Email?
                 </h2>
-                <p className="text-white/55 leading-relaxed mb-2">
+                <p className="text-plum-600 leading-relaxed mb-2">
                   Send us a message and we&apos;ll get back to you as soon as
                   possible.
                 </p>
-                <p className="text-white/30 text-xs mb-8">
+                <p className="text-plum-300 text-xs mb-8">
                   We do not respond to solicitations.
                 </p>
                 <form
@@ -166,24 +166,24 @@ export default function ConnectPage() {
                       type="text"
                       placeholder="First name"
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-rose-400/50 transition-colors"
+                      className="field"
                     />
                     <input
                       type="text"
                       placeholder="Last name"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-rose-400/50 transition-colors"
+                      className="field"
                     />
                   </div>
                   <input
                     type="email"
                     placeholder="Email address"
                     required
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-rose-400/50 transition-colors"
+                    className="field"
                   />
                   <textarea
                     placeholder="What would you like to share or ask?"
                     rows={4}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-rose-400/50 transition-colors resize-none"
+                    className="field resize-none"
                   />
                   <button type="submit" className="btn-primary w-full">
                     Send Message
@@ -196,8 +196,7 @@ export default function ConnectPage() {
       </section>
 
       {/* Social Media */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950 via-purple-900/20 to-purple-950" />
+      <section className="py-20 relative overflow-hidden section-alt">
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -212,7 +211,7 @@ export default function ConnectPage() {
               Follow Along the{" "}
               <span className="gradient-text">Journey</span>
             </h2>
-            <p className="text-white/50 mt-4 max-w-lg mx-auto">
+            <p className="text-plum-500 mt-4 max-w-lg mx-auto">
               When you follow, leave us a comment and we&apos;ll follow you
               back. Let&apos;s build community together.
             </p>
@@ -232,15 +231,15 @@ export default function ConnectPage() {
                 className={`glass-card-hover border ${s.border} p-6 text-center block`}
               >
                 <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center text-white/70 mx-auto mb-4`}
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center text-plum-700 mx-auto mb-4`}
                 >
                   {s.icon}
                 </div>
-                <h3 className="font-semibold text-white mb-1">{s.name}</h3>
+                <h3 className="font-semibold text-plum-900 mb-1">{s.name}</h3>
                 <p className="text-rose-300/70 text-sm font-medium mb-2">
                   {s.handle}
                 </p>
-                <p className="text-white/40 text-xs">{s.tagline}</p>
+                <p className="text-plum-400 text-xs">{s.tagline}</p>
               </motion.a>
             ))}
           </div>

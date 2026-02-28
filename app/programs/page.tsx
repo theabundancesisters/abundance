@@ -32,7 +32,7 @@ const programs = [
     cta: "Book A Call",
     href: BOOK_CALL_URL,
     featured: true,
-    accent: "from-rose-400/30 to-purple-600/30",
+    accent: "from-rose-50 to-plum-50",
     border: "border-rose-400/30",
   },
   {
@@ -62,7 +62,7 @@ export default function ProgramsPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 mesh-bg" />
+        <div className="absolute inset-0 hero-bg" />
         <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-purple-600/15 blur-3xl animate-float" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -86,7 +86,7 @@ export default function ProgramsPage() {
             animate="visible"
             variants={fadeUp}
             custom={2}
-            className="text-white/60 text-lg max-w-2xl mx-auto"
+            className="text-plum-600 text-lg max-w-2xl mx-auto"
           >
             Comprehensive immersive experiences that combine ancient wisdom with
             modern science for profound, lasting change.
@@ -95,7 +95,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* Programs */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {programs.map((program, i) => (
             <motion.div
@@ -127,17 +127,17 @@ export default function ProgramsPage() {
                         <Zap className="w-5 h-5 text-purple-300" />
                       )}
                     </div>
-                    <span className="text-xs font-semibold tracking-widest uppercase text-white/40">
+                    <span className="text-xs font-semibold tracking-widest uppercase text-plum-400">
                       {program.duration}
                     </span>
                   </div>
-                  <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-2">
+                  <h2 className="font-serif text-3xl md:text-4xl font-bold text-plum-900 mb-2">
                     {program.name}
                   </h2>
                   <p className="text-rose-300/70 text-sm font-medium mb-6">
                     {program.tagline}
                   </p>
-                  <p className="text-white/60 leading-relaxed mb-8">
+                  <p className="text-plum-600 leading-relaxed mb-8">
                     {program.description}
                   </p>
                   <a
@@ -152,14 +152,14 @@ export default function ProgramsPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">
+                  <h3 className="text-xs font-semibold tracking-widest uppercase text-plum-400 mb-5">
                     What&apos;s Included
                   </h3>
                   <ul className="space-y-3">
                     {program.includes.map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
-                        <span className="text-white/70 text-sm">{item}</span>
+                        <span className="text-plum-700 text-sm">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -171,17 +171,17 @@ export default function ProgramsPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20">
+      <section className="py-20 section-alt">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-serif text-3xl font-bold text-white mb-4">
+            <h2 className="font-serif text-3xl font-bold text-plum-900 mb-4">
               Not sure which program is right for you?
             </h2>
-            <p className="text-white/50 mb-8">
+            <p className="text-plum-500 mb-8">
               Book a complimentary call and we&apos;ll guide you to the perfect
               starting point for your transformation.
             </p>

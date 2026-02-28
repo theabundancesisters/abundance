@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -28,26 +29,23 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-purple-950/95 backdrop-blur-md shadow-lg shadow-purple-950/50 border-b border-white/5"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-plum-100"
+          : "bg-white/80 backdrop-blur-sm"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
+
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-rose-400 to-purple-600 flex items-center justify-center text-white font-serif font-bold text-lg shadow-lg shadow-rose-400/20 group-hover:shadow-rose-400/40 transition-all duration-300">
-                A
-              </div>
-            </div>
-            <div>
-              <span className="font-serif text-white font-bold text-lg leading-tight block">
-                The Abundance Sisters
-              </span>
-              <span className="text-rose-300/70 text-xs tracking-widest uppercase">
-                The Leading Edge Life
-              </span>
+          <Link href="/" className="flex items-center">
+            <div className="relative h-10 w-48">
+              <Image
+                src="/images/logo.png"
+                alt="The Leading Edge Life"
+                fill
+                className="object-contain object-left"
+                priority
+              />
             </div>
           </Link>
 
@@ -59,7 +57,7 @@ export default function Navbar() {
                   <button
                     onClick={() => setOfferingsOpen(!offeringsOpen)}
                     onBlur={() => setTimeout(() => setOfferingsOpen(false), 150)}
-                    className="flex items-center gap-1 text-white/80 hover:text-white text-sm font-medium transition-colors duration-200"
+                    className="flex items-center gap-1 text-plum-700 hover:text-plum-900 text-sm font-medium transition-colors"
                   >
                     {link.label}
                     <ChevronDown
@@ -74,13 +72,13 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-48 glass-card shadow-xl shadow-purple-950/50 overflow-hidden"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-48 bg-white border border-plum-100 rounded-2xl shadow-lg overflow-hidden"
                       >
                         {link.dropdown.map((item) => (
                           <Link
                             key={item.label}
                             href={item.href}
-                            className="block px-5 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors duration-150"
+                            className="block px-5 py-3 text-sm text-plum-700 hover:text-plum-900 hover:bg-cream-100 transition-colors"
                           >
                             {item.label}
                           </Link>
@@ -93,10 +91,8 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors duration-200 ${
-                    pathname === link.href
-                      ? "text-rose-300"
-                      : "text-white/80 hover:text-white"
+                  className={`text-sm font-medium transition-colors ${
+                    pathname === link.href ? "text-rose-500" : "text-plum-700 hover:text-plum-900"
                   }`}
                 >
                   {link.label}
@@ -113,10 +109,10 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
+            className="lg:hidden p-2 text-plum-700 hover:text-plum-900 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -132,20 +128,20 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-purple-950/98 backdrop-blur-md border-b border-white/10"
+            className="lg:hidden bg-white border-b border-plum-100"
           >
             <div className="px-4 py-6 space-y-1">
               {NAV_LINKS.map((link) =>
                 link.dropdown ? (
                   <div key={link.label}>
-                    <div className="px-4 py-2 text-xs font-semibold tracking-widest uppercase text-rose-300/60">
+                    <div className="px-4 py-2 text-xs font-semibold tracking-widest uppercase text-plum-400">
                       Offerings
                     </div>
                     {link.dropdown.map((item) => (
                       <Link
                         key={item.label}
                         href={item.href}
-                        className="block px-6 py-2 text-white/70 hover:text-white text-sm transition-colors"
+                        className="block px-6 py-2 text-plum-600 hover:text-plum-900 text-sm"
                       >
                         {item.label}
                       </Link>
@@ -155,7 +151,7 @@ export default function Navbar() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="block px-4 py-3 text-white/80 hover:text-white font-medium transition-colors rounded-xl hover:bg-white/5"
+                    className="block px-4 py-3 text-plum-700 hover:text-plum-900 font-medium rounded-xl hover:bg-cream-100"
                   >
                     {link.label}
                   </Link>

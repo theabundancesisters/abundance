@@ -59,7 +59,7 @@ export default function GiftsPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 mesh-bg" />
+        <div className="absolute inset-0 hero-bg" />
         <div className="absolute top-1/4 right-1/3 w-80 h-80 rounded-full bg-gold-500/10 blur-3xl animate-float" />
         <div
           className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full bg-rose-400/10 blur-3xl animate-float"
@@ -87,7 +87,7 @@ export default function GiftsPage() {
             animate="visible"
             variants={fadeUp}
             custom={2}
-            className="text-white/60 text-lg max-w-2xl mx-auto"
+            className="text-plum-600 text-lg max-w-2xl mx-auto"
           >
             Free access to our sacred circle and downloads for your abundance.
             Start your transformation journey today — no investment required.
@@ -96,7 +96,7 @@ export default function GiftsPage() {
       </section>
 
       {/* Gifts */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           {gifts.map((gift, i) => (
             <motion.div
@@ -121,13 +121,13 @@ export default function GiftsPage() {
                   >
                     {gift.icon}
                   </div>
-                  <div className="text-xs font-semibold tracking-widest uppercase text-white/30 mb-2">
+                  <div className="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-2">
                     {gift.tagline}
                   </div>
-                  <h2 className="font-serif text-2xl md:text-3xl font-bold text-white mb-4">
+                  <h2 className="font-serif text-2xl md:text-3xl font-bold text-plum-900 mb-4">
                     {gift.name}
                   </h2>
-                  <p className="text-white/55 leading-relaxed mb-3">
+                  <p className="text-plum-600 leading-relaxed mb-3">
                     {gift.description}
                   </p>
                   <p className="text-gold-400/70 text-sm font-medium">
@@ -137,19 +137,19 @@ export default function GiftsPage() {
 
                 {/* Form placeholder */}
                 <div className="glass-card p-6">
-                  <p className="text-white/40 text-xs font-semibold tracking-widest uppercase mb-5">
+                  <p className="text-plum-400 text-xs font-semibold tracking-widest uppercase mb-5">
                     Claim Your Free Gift
                   </p>
                   <div className="space-y-3">
                     <input
                       type="text"
                       placeholder="Your first name"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-rose-400/50 focus:bg-white/8 transition-colors"
+                      className="field"
                     />
                     <input
                       type="email"
                       placeholder="Your email address"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-rose-400/50 focus:bg-white/8 transition-colors"
+                      className="field"
                     />
                     <button
                       type="button"
@@ -160,7 +160,7 @@ export default function GiftsPage() {
                       {gift.cta}
                     </button>
                   </div>
-                  <p className="text-white/20 text-xs mt-3 text-center">
+                  <p className="text-plum-200 text-xs mt-3 text-center">
                     We respect your privacy. No spam, ever.
                   </p>
                 </div>
@@ -171,7 +171,7 @@ export default function GiftsPage() {
       </section>
 
       {/* Upgrade CTA */}
-      <section className="py-16">
+      <section className="py-16 section-alt">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -179,10 +179,10 @@ export default function GiftsPage() {
             viewport={{ once: true }}
             className="glass-card border border-rose-400/20 p-8"
           >
-            <h3 className="font-serif text-2xl font-bold text-white mb-3">
+            <h3 className="font-serif text-2xl font-bold text-plum-900 mb-3">
               Ready to Go Deeper?
             </h3>
-            <p className="text-white/50 text-sm mb-6">
+            <p className="text-plum-500 text-sm mb-6">
               Our free gifts are just the beginning. Explore courses, memberships,
               and 1:1 sessions to accelerate your transformation.
             </p>

@@ -14,76 +14,76 @@
     margin: 0;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
-    background-color: #0d0717;
-    color: #fff;
+    background-color: #fdfaf7;
+    color: #2d1b3d;
     font-family: var(--font-inter);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  ::selection {
-    background-color: #48345e;
-    color: #fff;
-  }
+  ::selection { background-color: #ddc9ec; color: #2d1b3d; }
 
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #0d0717;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #48345e;
-    border-radius: 3px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #5e4478;
-  }
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: #fdfaf7; }
+  ::-webkit-scrollbar-thumb { background: #bea3d1; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #9b7db5; }
 }
 
 @layer components {
+
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-rose-400 to-purple-600 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-rose-400/25 hover:scale-105 active:scale-100;
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           bg-gradient-to-r from-rose-500 to-plum-700
+           text-white font-semibold rounded-full
+           transition-all duration-300
+           hover:shadow-lg hover:shadow-rose-400/30 hover:scale-105 active:scale-100;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-8 py-4 border border-rose-400/60 text-rose-300 font-semibold rounded-full transition-all duration-300 hover:bg-rose-400/10 hover:border-rose-400 hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           border border-plum-300 text-plum-700 font-semibold rounded-full
+           transition-all duration-300
+           hover:bg-plum-50 hover:border-plum-500 hover:text-plum-900;
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-300 text-purple-950 font-bold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/30 hover:scale-105 active:scale-100;
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           bg-gradient-to-r from-gold-500 to-gold-400
+           text-plum-900 font-bold rounded-full
+           transition-all duration-300
+           hover:shadow-lg hover:shadow-gold-400/30 hover:scale-105 active:scale-100;
   }
 
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl;
+  .card {
+    @apply bg-white border border-plum-100 rounded-2xl shadow-sm;
   }
 
-  .glass-card-hover {
-    @apply glass-card transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-xl hover:shadow-purple-900/30;
+  .card-hover {
+    @apply card transition-all duration-300
+           hover:shadow-md hover:shadow-plum-100 hover:border-plum-200 hover:-translate-y-0.5;
   }
+
+  /* Legacy alias so existing page code still works */
+  .glass-card       { @apply card; }
+  .glass-card-hover { @apply card-hover; }
 
   .section-heading {
-    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-plum-900;
   }
 
   .section-subheading {
-    @apply font-serif text-2xl md:text-3xl font-semibold;
+    @apply font-serif text-2xl md:text-3xl font-semibold text-plum-800;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-rose-300 via-purple-300 to-gold-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-rose-500 via-plum-500 to-gold-500 bg-clip-text text-transparent;
   }
 
   .gradient-text-gold {
-    @apply bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-gold-600 to-gold-400 bg-clip-text text-transparent;
   }
 
   .divider-glow {
@@ -93,19 +93,25 @@
   .tag {
     @apply inline-block px-4 py-1 rounded-full text-xs font-semibold tracking-widest uppercase;
   }
+
+  .field {
+    @apply w-full bg-cream-50 border border-plum-200 rounded-xl px-4 py-3
+           text-plum-900 text-sm placeholder:text-plum-300
+           focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100
+           transition-colors;
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-balance { text-wrap: balance; }
+
+  .hero-bg {
+    background:
+      radial-gradient(ellipse at top left,  #f0e8f9 0%, transparent 55%),
+      radial-gradient(ellipse at top right, #faeef6 0%, transparent 55%),
+      radial-gradient(ellipse at bottom,    #fdf6e8 0%, transparent 65%),
+      #fdfaf7;
   }
 
-  .mesh-bg {
-    background: radial-gradient(at 40% 20%, #48345e 0px, transparent 50%),
-      radial-gradient(at 80% 0%, #2d1b3d 0px, transparent 50%),
-      radial-gradient(at 0% 50%, #1a0f24 0px, transparent 50%),
-      radial-gradient(at 80% 50%, #3d2550 0px, transparent 50%),
-      radial-gradient(at 0% 100%, #0d0717 0px, transparent 50%);
-    background-color: #0d0717;
-  }
+  .section-alt { background-color: #f8f1ea; }
 }

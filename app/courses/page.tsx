@@ -116,7 +116,7 @@ export default function CoursesPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 mesh-bg" />
+        <div className="absolute inset-0 hero-bg" />
         <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-purple-500/10 blur-3xl animate-float" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -139,7 +139,7 @@ export default function CoursesPage() {
             animate="visible"
             variants={fadeUp}
             custom={2}
-            className="text-white/60 text-lg max-w-2xl mx-auto"
+            className="text-plum-600 text-lg max-w-2xl mx-auto"
           >
             Transform your mind, align with your strengths, and lead from the
             heart — at your own pace, on your own schedule.
@@ -150,18 +150,18 @@ export default function CoursesPage() {
             animate="visible"
             variants={fadeUp}
             custom={3}
-            className="flex items-center justify-center gap-6 mt-8 text-white/40 text-sm"
+            className="flex items-center justify-center gap-6 mt-8 text-plum-400 text-sm"
           >
             <span className="flex items-center gap-2">
               <Infinity size={14} className="text-rose-400" />
               Lifetime Access
             </span>
-            <span className="w-px h-4 bg-white/10" />
+            <span className="w-px h-4 bg-plum-100" />
             <span className="flex items-center gap-2">
               <BookOpen size={14} className="text-rose-400" />
               Instant Access
             </span>
-            <span className="w-px h-4 bg-white/10" />
+            <span className="w-px h-4 bg-plum-100" />
             <span className="flex items-center gap-2">
               <Star size={14} className="text-rose-400" />
               Proven Methods
@@ -171,7 +171,7 @@ export default function CoursesPage() {
       </section>
 
       {/* Courses Grid */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Featured course full width */}
           {courses
@@ -196,16 +196,16 @@ export default function CoursesPage() {
 
                 <div className="grid lg:grid-cols-2 gap-10">
                   <div>
-                    <div className="text-xs font-semibold tracking-widest uppercase text-white/30 mb-3">
+                    <div className="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-3">
                       {course.tagline}
                     </div>
-                    <h2 className="font-serif text-4xl font-bold text-white mb-2">
+                    <h2 className="font-serif text-4xl font-bold text-plum-900 mb-2">
                       {course.name}
                     </h2>
                     <div className="text-3xl font-bold gradient-text-gold mb-6">
                       {course.price}
                     </div>
-                    <p className="text-white/60 leading-relaxed mb-8">
+                    <p className="text-plum-600 leading-relaxed mb-8">
                       {course.description}
                     </p>
                     <a
@@ -218,14 +218,14 @@ export default function CoursesPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">
+                    <h3 className="text-xs font-semibold tracking-widest uppercase text-plum-400 mb-5">
                       What&apos;s Included
                     </h3>
                     <ul className="space-y-3">
                       {course.includes.map((item) => (
                         <li key={item} className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
-                          <span className="text-white/70 text-sm">{item}</span>
+                          <span className="text-plum-700 text-sm">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -254,23 +254,23 @@ export default function CoursesPage() {
                       </span>
                     </div>
                   )}
-                  <div className="text-xs font-semibold tracking-widest uppercase text-white/30 mb-2">
+                  <div className="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-2">
                     {course.tagline}
                   </div>
-                  <h3 className="font-serif text-2xl font-bold text-white mb-1">
+                  <h3 className="font-serif text-2xl font-bold text-plum-900 mb-1">
                     {course.name}
                   </h3>
                   <div className="text-2xl font-bold gradient-text-gold mb-4">
                     {course.price}
                   </div>
-                  <p className="text-white/55 text-sm leading-relaxed mb-5">
+                  <p className="text-plum-600 text-sm leading-relaxed mb-5">
                     {course.description}
                   </p>
                   <ul className="space-y-2 mb-7">
                     {course.includes.map((item) => (
                       <li key={item} className="flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-rose-400/70 shrink-0 mt-0.5" />
-                        <span className="text-white/55 text-xs">{item}</span>
+                        <span className="text-plum-600 text-xs">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -288,7 +288,7 @@ export default function CoursesPage() {
       </section>
 
       {/* Bundle Note */}
-      <section className="py-16">
+      <section className="py-16 section-alt">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -296,11 +296,11 @@ export default function CoursesPage() {
             viewport={{ once: true }}
             className="glass-card border border-gold-500/20 p-8"
           >
-            <p className="text-white/60 text-sm mb-4">
+            <p className="text-plum-600 text-sm mb-4">
               Brain-SHIFT™, Align With Strengths, and Emotional Mastery are
               included in the{" "}
-              <strong className="text-white">Live Aligned Program</strong> and
-              select <strong className="text-white">Membership tiers</strong>.
+              <strong className="text-plum-900">Live Aligned Program</strong> and
+              select <strong className="text-plum-900">Membership tiers</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a href="/programs" className="btn-outline text-sm px-6 py-3">
