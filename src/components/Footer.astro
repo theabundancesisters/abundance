@@ -1,0 +1,126 @@
+---
+import { SOCIAL } from "../lib/utils";
+
+const BOOK_CALL_URL =
+  "https://api.leadconnectorhq.com/widget/bookings/generalcalendar-59d8c81c-f8e6-4bde-b959-fb61483daf32/typeofappointment-d6e719bd-15f7-43ca-8dca-1292ef01996d";
+
+const footerLinks = [
+  {
+    heading: "Offerings",
+    links: [
+      { label: "Programs",     href: "/programs" },
+      { label: "1:1 Sessions", href: "/sessions" },
+      { label: "Courses",      href: "/courses" },
+      { label: "Memberships",  href: "/memberships" },
+      { label: "Workshops",    href: "/workshops" },
+      { label: "Gifts",        href: "/gifts" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About",           href: "/about" },
+      { label: "Connect",         href: "/connect" },
+      { label: "Terms of Service", href: "/pages/terms" },
+      { label: "Privacy Policy",  href: "/pages/privacy-policy" },
+    ],
+  },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-cream-100 border-t border-plum-100">
+
+  <!-- CTA Banner -->
+  <div class="bg-gradient-to-r from-plum-100 via-rose-100 to-gold-100 border-b border-plum-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
+      <p class="font-serif text-2xl md:text-3xl text-plum-900 mb-2">
+        Ready to remember the truth of who you are?
+      </p>
+      <p class="text-plum-500 mb-7">
+        Book a call and take the first step toward your divine alignment.
+      </p>
+      <a
+        href={BOOK_CALL_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary inline-flex"
+      >
+        Book A Call Now
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <a href="/" class="inline-block mb-5">
+          <img
+            src="/images/logo.png"
+            alt="The Leading Edge Life"
+            class="h-10 w-48 object-contain object-left"
+          />
+        </a>
+        <p class="text-plum-500 text-sm leading-relaxed max-w-xs mb-6">
+          Teachers and channels here to serve humanity through divine guidance
+          to spiritual liberation of mind, body, and soul.
+        </p>
+        <div class="flex items-center gap-3">
+          <!-- Facebook -->
+          <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+             class="w-9 h-9 rounded-full bg-white border border-plum-200 flex items-center justify-center text-plum-500 hover:text-plum-800 hover:border-plum-400 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+             class="w-9 h-9 rounded-full bg-white border border-plum-200 flex items-center justify-center text-plum-500 hover:text-plum-800 hover:border-plum-400 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- TikTok -->
+          <a href={SOCIAL.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok"
+             class="w-9 h-9 rounded-full bg-white border border-plum-200 flex items-center justify-center text-plum-500 hover:text-plum-800 hover:border-plum-400 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Link groups -->
+      {footerLinks.map((group) => (
+        <div>
+          <h4 class="text-xs font-semibold tracking-widest uppercase text-plum-400 mb-5">
+            {group.heading}
+          </h4>
+          <ul class="space-y-3">
+            {group.links.map((link) => (
+              <li>
+                <a href={link.href} class="text-plum-500 hover:text-plum-900 text-sm transition-colors">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-plum-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-plum-300 text-sm">
+        © {year} The Abundance Sisters. All rights reserved.
+      </p>
+      <div class="flex gap-6">
+        <a href="/pages/terms"          class="text-plum-300 hover:text-plum-600 text-sm transition-colors">Terms</a>
+        <a href="/pages/privacy-policy" class="text-plum-300 hover:text-plum-600 text-sm transition-colors">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>

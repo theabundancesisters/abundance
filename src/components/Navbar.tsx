@@ -1,18 +1,16 @@
-"use client";
-
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { NAV_LINKS, BOOK_CALL_URL } from "@/lib/utils";
+import { NAV_LINKS, BOOK_CALL_URL } from "../lib/utils";
 
-export default function Navbar() {
+interface Props {
+  pathname: string;
+}
+
+export default function Navbar({ pathname }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [offeringsOpen, setOfferingsOpen] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -20,6 +18,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // close mobile menu on route change (not needed for full-page nav but keep for SPA feel)
   useEffect(() => {
     setIsOpen(false);
     setOfferingsOpen(false);
@@ -37,17 +36,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <a href="/" className="flex items-center">
             <div className="relative h-10 w-48">
-              <Image
+              <img
                 src="/images/logo.png"
                 alt="The Leading Edge Life"
-                fill
-                className="object-contain object-left"
-                priority
+                className="h-full w-full object-contain object-left"
               />
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
@@ -75,28 +72,30 @@ export default function Navbar() {
                         className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-48 bg-white border border-plum-100 rounded-2xl shadow-lg overflow-hidden"
                       >
                         {link.dropdown.map((item) => (
-                          <Link
+                          <a
                             key={item.label}
                             href={item.href}
                             className="block px-5 py-3 text-sm text-plum-700 hover:text-plum-900 hover:bg-cream-100 transition-colors"
                           >
                             {item.label}
-                          </Link>
+                          </a>
                         ))}
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
               ) : (
-                <Link
+                <a
                   key={link.label}
                   href={link.href}
                   className={`text-sm font-medium transition-colors ${
-                    pathname === link.href ? "text-rose-500" : "text-plum-700 hover:text-plum-900"
+                    pathname === link.href
+                      ? "text-rose-500"
+                      : "text-plum-700 hover:text-plum-900"
                   }`}
                 >
                   {link.label}
-                </Link>
+                </a>
               )
             )}
             <a
@@ -138,23 +137,23 @@ export default function Navbar() {
                       Offerings
                     </div>
                     {link.dropdown.map((item) => (
-                      <Link
+                      <a
                         key={item.label}
                         href={item.href}
                         className="block px-6 py-2 text-plum-600 hover:text-plum-900 text-sm"
                       >
                         {item.label}
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 ) : (
-                  <Link
+                  <a
                     key={link.label}
                     href={link.href}
                     className="block px-4 py-3 text-plum-700 hover:text-plum-900 font-medium rounded-xl hover:bg-cream-100"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 )
               )}
               <div className="pt-4">

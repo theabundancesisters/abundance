@@ -1,0 +1,184 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { BOOK_CALL_URL } from "../lib/utils";
+
+const modalities = [
+  "Energy Clearing", "Divine Guidance Channeling", "Brain-SHIFT™ Methodology",
+  "Behavioral Science", "Business Consulting", "Emotional Mastery",
+  "Soul Alignment", "Pendulum Divination", "Subconscious Reprogramming", "Servant Leadership",
+];
+
+const timeline = [
+  { year: "1980", title: "The Legacy Begins", description: "Their mother, Jeanne McGuire, establishes her consulting business in Boston, laying the foundation for a family legacy of transformation." },
+  { year: "20 Years Ago", title: "The Journey Starts", description: "Claudia and Julia begin their work as behavioral science specialists and business consultants, addressing the core human threads of unworthiness and fear." },
+  { year: "Brain-SHIFT™", title: "A Proprietary Breakthrough", description: "The sisters develop Brain-SHIFT™ — a revolutionary process helping clients eliminate stress and limiting beliefs at the subconscious level." },
+  { year: "Today", title: "The Leading Edge Life", description: "Thousands of clients transformed. Multiple modalities mastered. A global community of leaders, entrepreneurs, and changemakers aligned with their divine purpose." },
+];
+---
+
+<Layout title="About | The Abundance Sisters">
+
+  <!-- Hero -->
+  <section class="relative min-h-[60vh] flex items-end overflow-hidden pt-20">
+    <div class="absolute inset-0">
+      <img src="/images/hero-bg.jpg" alt="The Abundance Sisters" class="w-full h-full object-cover object-center" loading="eager" />
+      <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-white/20"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 text-center w-full">
+      <span class="tag bg-rose-100 border border-rose-200 text-rose-600 mb-5 inline-block">✦ The Abundance Sisters ✦</span>
+      <h1 class="section-heading mb-4">Teachers, Channels &amp; <span class="gradient-text">Soul Guides</span></h1>
+      <p class="text-plum-600 text-lg max-w-2xl mx-auto">
+        We are here to serve humanity through divine guidance to spiritual liberation of mind, body, and soul.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <span class="tag bg-plum-100 border border-plum-200 text-plum-600 mb-6 inline-block">Our Mission</span>
+          <h2 class="section-subheading mb-6">Our Journey to <span class="gradient-text">Your Liberation</span></h2>
+          <p class="text-plum-600 leading-relaxed mb-5">
+            We are teachers and channels here to serve humanity through divine guidance to spiritual liberation of mind, body, and soul. Our mission centers on helping you step into your true power — aligned, confident, and purpose-driven.
+          </p>
+          <p class="text-plum-600 leading-relaxed mb-5">
+            With over 20 years as behavioral science specialists and business consultants, we've worked with thousands of clients — targeting leaders, entrepreneurs, and changemakers seeking to overcome limiting beliefs.
+          </p>
+          <p class="text-plum-600 leading-relaxed mb-8">
+            We address the common human threads of unworthiness and fear — helping you move from the intellectual understanding of truth to the embodied experience of it.
+          </p>
+          <a href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex">
+            Book A Call
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div>
+          <div class="relative rounded-3xl overflow-hidden aspect-square shadow-xl shadow-plum-100">
+            <img src="/images/sisters.jpg" alt="Claudia and Julia" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 section-alt">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c96e92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h4 class="font-semibold text-plum-900 mb-2">Heart-Led Guidance</h4>
+          <p class="text-plum-500 text-sm leading-relaxed">Every session is infused with love, intention, and divine wisdom.</p>
+        </div>
+
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded-xl bg-gold-100 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6.364 6.364 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </div>
+          <h4 class="font-semibold text-plum-900 mb-2">Ancient Wisdom + Modern Science</h4>
+          <p class="text-plum-500 text-sm leading-relaxed">Bridging timeless spiritual principles with cutting-edge behavioral science.</p>
+        </div>
+
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded-xl bg-plum-100 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7a5a94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4 class="font-semibold text-plum-900 mb-2">Family Legacy</h4>
+          <p class="text-plum-500 text-sm leading-relaxed">Multi-generational wisdom — our mother founded her consulting firm in Boston in 1980.</p>
+        </div>
+
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded-xl bg-gold-100 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h4 class="font-semibold text-plum-900 mb-2">Proven Results</h4>
+          <p class="text-plum-500 text-sm leading-relaxed">Thousands of clients have experienced profound transformation across every area of life.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Photos -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="tag bg-gold-100 border border-gold-300 text-gold-600 mb-4 inline-block">In Community</span>
+        <h2 class="section-heading">The Work <span class="gradient-text">In Action</span></h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
+          <img src="/images/workshop-dome.jpg" alt="Workshop in geodesic dome" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
+          <img src="/images/workshop-group.jpg" alt="Group workshop celebration" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-24 md:py-32 section-alt">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="tag bg-gold-100 border border-gold-300 text-gold-600 mb-4 inline-block">Our Story</span>
+        <h2 class="section-heading">It&apos;s A <span class="gradient-text-gold">Family Affair</span></h2>
+      </div>
+      <div class="relative">
+        <div class="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-rose-300 via-plum-200 to-transparent"></div>
+        <div class="space-y-10">
+          {timeline.map((item) => (
+            <div class="flex gap-8 pl-20 relative">
+              <div class="absolute left-5 top-2 w-6 h-6 rounded-full bg-gradient-to-br from-rose-400 to-plum-600 flex items-center justify-center shadow-md">
+                <div class="w-2 h-2 rounded-full bg-white"></div>
+              </div>
+              <div class="card p-6 flex-1">
+                <div class="text-xs font-semibold tracking-widest uppercase text-gold-500 mb-2">{item.year}</div>
+                <h3 class="font-serif text-xl font-bold text-plum-900 mb-2">{item.title}</h3>
+                <p class="text-plum-500 text-sm leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modalities -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <div class="mb-10">
+        <span class="tag bg-rose-100 border border-rose-200 text-rose-600 mb-4 inline-block">Our Expertise</span>
+        <h2 class="section-heading">Trained Across <span class="gradient-text">Multiple Modalities</span></h2>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center">
+        {modalities.map((m) => (
+          <span class="card px-5 py-2.5 text-sm text-plum-700 hover:text-plum-900 hover:border-plum-200 hover:shadow-md transition-all duration-200 cursor-default">
+            {m}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 section-alt">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <div class="card p-12 shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-rose-400 mx-auto mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6.364 6.364 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <h2 class="font-serif text-3xl font-bold text-plum-900 mb-4">Share Your Story</h2>
+        <p class="text-plum-500 mb-8">We'd love to hear where you are on your journey and explore how we can support your transformation.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/connect" class="btn-primary">Connect With Us</a>
+          <a href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer" class="btn-outline">Book A Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

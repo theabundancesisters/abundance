@@ -1,0 +1,126 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const gifts = [
+  {
+    name: "Ask Your Angels™ Sacred Circle",
+    tagline: "Free Weekly Group Clearing",
+    description: "Join us every Wednesday for a complimentary live group session. Bring your specific questions and receive divine guidance, field clearings, and transmission to open your field for higher wisdom.",
+    detail: "Wednesdays · 5:30–6:00 PM PST",
+    cta: "Sign Up For Free Weekly Group Clearings",
+    border: "border-rose-200",
+    badge: "Live Weekly",
+    iconColor: "text-rose-500",
+    iconBg: "from-rose-400/30 to-plum-600/30",
+  },
+  {
+    name: "Quiet The Inner Critic Guide",
+    tagline: "Free Download",
+    description: "A quick, easy-to-use guide to quiet the inner critic and feel better in just minutes. Practical tools for silencing self-sabotage whenever it shows up — at work, in relationships, or during big decisions.",
+    detail: "Instant download · PDF guide",
+    cta: "Claim Download",
+    border: "border-plum-100",
+    badge: "Free Download",
+    iconColor: "text-plum-500",
+    iconBg: "from-plum-600/20 to-rose-400/20",
+  },
+  {
+    name: "Life Wheel Assessment",
+    tagline: "Free Download",
+    description: "Evaluate different areas of your life to identify where intentionality — or limiting beliefs — may be creating or blocking your results. Use alongside the Inner Critic guide for powerful subconscious reprogramming.",
+    detail: "Instant download · PDF assessment",
+    cta: "Claim Download",
+    border: "border-gold-300",
+    badge: "Free Download",
+    iconColor: "text-gold-600",
+    iconBg: "from-gold-500/20 to-plum-600/20",
+  },
+];
+---
+
+<Layout title="Free Gifts | The Abundance Sisters">
+
+  <!-- Hero -->
+  <section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-20">
+    <div class="absolute inset-0 hero-bg"></div>
+    <div class="absolute top-1/4 right-1/3 w-80 h-80 rounded-full bg-gold-300/20 blur-3xl animate-float"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full bg-rose-300/20 blur-3xl animate-float" style="animation-delay: 2s;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+      <span class="tag bg-gold-100 border border-gold-300 text-gold-600 mb-6 inline-block">✦ Free Access ✦</span>
+      <h1 class="section-heading mb-6">Our <span class="gradient-text-gold">Gifts For You</span></h1>
+      <p class="text-plum-600 text-lg max-w-2xl mx-auto">
+        Free access to our sacred circle and downloads for your abundance. Start your transformation journey today — no investment required.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gifts -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {gifts.map((gift, i) => (
+        <div class={`card border ${gift.border} p-8 md:p-12 relative overflow-hidden`}>
+          <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/50 to-transparent"></div>
+          <span class="absolute top-5 right-5 tag bg-gold-100 border border-gold-300 text-gold-600 text-xs">{gift.badge}</span>
+
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <div class={`w-14 h-14 rounded-2xl bg-gradient-to-br ${gift.iconBg} flex items-center justify-center ${gift.iconColor} mb-5`}>
+                {i === 0 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                )}
+                {i === 1 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                )}
+                {i === 2 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                )}
+              </div>
+              <div class="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-2">{gift.tagline}</div>
+              <h2 class="font-serif text-2xl md:text-3xl font-bold text-plum-900 mb-4">{gift.name}</h2>
+              <p class="text-plum-600 leading-relaxed mb-3">{gift.description}</p>
+              <p class="text-gold-500 text-sm font-medium">{gift.detail}</p>
+            </div>
+
+            <div class="card p-6">
+              <p class="text-plum-400 text-xs font-semibold tracking-widest uppercase mb-5">Claim Your Free Gift</p>
+              <div class="space-y-3">
+                <input type="text" placeholder="Your first name" class="field" />
+                <input type="email" placeholder="Your email address" class="field" />
+                <button type="button" class="btn-gold w-full gift-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6.364 6.364 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                  {gift.cta}
+                </button>
+              </div>
+              <p class="text-plum-300 text-xs mt-3 text-center">We respect your privacy. No spam, ever.</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Upgrade CTA -->
+  <section class="py-16 section-alt">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <div class="card border border-rose-200 p-8">
+        <h3 class="font-serif text-2xl font-bold text-plum-900 mb-3">Ready to Go Deeper?</h3>
+        <p class="text-plum-500 text-sm mb-6">
+          Our free gifts are just the beginning. Explore courses, memberships, and 1:1 sessions to accelerate your transformation.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/courses" class="btn-outline text-sm px-6 py-3">Browse Courses</a>
+          <a href="/memberships" class="btn-gold text-sm px-6 py-3">Join a Membership</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  document.querySelectorAll(".gift-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      alert("Form submission coming soon — connect your email provider.");
+    });
+  });
+</script>

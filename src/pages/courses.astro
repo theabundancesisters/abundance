@@ -1,0 +1,207 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const courses = [
+  {
+    name: "Brain-SHIFT™",
+    tagline: "Master Your Mind",
+    price: "$333",
+    description: "The flagship course. Master your mind through subconscious reprogramming using the proprietary Brain-SHIFT™ methodology. Transform limiting beliefs at the root level for lasting change.",
+    includes: [
+      "7-module course structure",
+      "Guided audio sessions",
+      "Welcome call with the Sisters",
+      "30-day access to community circle",
+      "Workbook with exercises",
+      "Lifetime course access",
+      "70 foundation belief statements",
+    ],
+    href: "https://www.theleadingedge.life/offers/mp7TZC5e/checkout",
+    featured: true,
+    border: "border-rose-200",
+    badge: "Signature Course",
+  },
+  {
+    name: "Align With Strengths",
+    tagline: "Know Your Drivers",
+    price: "$333",
+    description: "Discover your natural strengths, motivation patterns, and behavioral drivers. Includes a professional behavioral assessment with a personalized 30-minute readback consultation.",
+    includes: [
+      "Behavioral assessment",
+      "30-minute consultation & readback",
+      "Drivers Model training",
+      "Practical workbook",
+      "Lifetime materials access",
+    ],
+    href: "https://www.theleadingedge.life/offers/5ZJREi82",
+    featured: false,
+    border: "border-plum-100",
+    badge: null,
+  },
+  {
+    name: "Emotional Mastery",
+    tagline: "Lead From The Heart",
+    price: "$333",
+    description: "Develop emotional intelligence and heart-centered leadership. Move from intellectual understanding to embodied practice — feeling your way to your highest self.",
+    includes: [
+      "Emotional intelligence framework",
+      "Heart-centered leadership training",
+      "Welcome session included",
+      "Lifetime access to materials",
+      "Practical exercises",
+    ],
+    href: "https://www.theleadingedge.life/offers/uvFYBzoZ",
+    featured: false,
+    border: "border-plum-100",
+    badge: null,
+  },
+  {
+    name: "From Triggered To Calm",
+    tagline: "Guided Audio Collection",
+    price: "$97",
+    description: "Quick-access audio toolkit for belief reprogramming in the moment. Perfect for daily practice or when you need fast relief from reactive patterns.",
+    includes: [
+      "30 pre-written affirmations (3 themes)",
+      "3 bonus healing audios",
+      "Future self activation audio",
+      "Breathwork exercises",
+      "Lifetime access",
+    ],
+    href: "https://www.theleadingedge.life/offers/mp7TZC5e/checkout",
+    featured: false,
+    border: "border-rose-200",
+    badge: "Best Value",
+  },
+  {
+    name: "Connect With Your Divine",
+    tagline: "Pendulum 101",
+    price: "$111",
+    description: "Learn to use a pendulum for divine guidance and intuitive decision-making. A beginner-friendly introduction to pendulum divination and accessing your higher wisdom.",
+    includes: [
+      "Video tutorial series",
+      "Sample divination charts",
+      "Dowsing technique training",
+      "Lifetime access to materials",
+    ],
+    href: "https://www.theleadingedge.life/offers/Zs5FvLoo",
+    featured: false,
+    border: "border-plum-100",
+    badge: null,
+  },
+];
+
+const featuredCourse = courses.find((c) => c.featured)!;
+const otherCourses = courses.filter((c) => !c.featured);
+---
+
+<Layout title="Digital Courses | The Abundance Sisters">
+
+  <!-- Hero -->
+  <section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-20">
+    <div class="absolute inset-0 hero-bg"></div>
+    <div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-plum-200/20 blur-3xl animate-float"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+      <span class="tag bg-plum-100 border border-plum-200 text-plum-600 mb-6 inline-block">Self-Paced Mastery</span>
+      <h1 class="section-heading mb-6">Digital <span class="gradient-text">Courses</span></h1>
+      <p class="text-plum-600 text-lg max-w-2xl mx-auto">
+        Transform your mind, align with your strengths, and lead from the heart — at your own pace, on your own schedule.
+      </p>
+      <div class="flex items-center justify-center gap-6 mt-8 text-plum-400 text-sm">
+        <span class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c96e92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12h.01"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
+          Lifetime Access
+        </span>
+        <span class="w-px h-4 bg-plum-100"></span>
+        <span class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c96e92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Instant Access
+        </span>
+        <span class="w-px h-4 bg-plum-100"></span>
+        <span class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c96e92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Proven Methods
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Featured course -->
+      <div class={`card border ${featuredCourse.border} p-8 md:p-12 mb-8 relative overflow-hidden`}>
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
+        <span class="absolute top-6 right-6 tag bg-rose-100 border border-rose-200 text-rose-600">{featuredCourse.badge}</span>
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div>
+            <div class="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-3">{featuredCourse.tagline}</div>
+            <h2 class="font-serif text-4xl font-bold text-plum-900 mb-2">{featuredCourse.name}</h2>
+            <div class="text-3xl font-bold gradient-text-gold mb-6">{featuredCourse.price}</div>
+            <p class="text-plum-600 leading-relaxed mb-8">{featuredCourse.description}</p>
+            <a href={featuredCourse.href} class="btn-primary inline-flex">
+              Enroll Now
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <div>
+            <h3 class="text-xs font-semibold tracking-widest uppercase text-plum-400 mb-5">What&apos;s Included</h3>
+            <ul class="space-y-3">
+              {featuredCourse.includes.map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-rose-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span class="text-plum-700 text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other courses -->
+      <div class="grid md:grid-cols-2 gap-6">
+        {otherCourses.map((course) => (
+          <div class={`card border ${course.border} p-8 relative`}>
+            {course.badge && (
+              <span class="absolute top-5 right-5 tag bg-gold-100 border border-gold-300 text-gold-600 text-xs">{course.badge}</span>
+            )}
+            <div class="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-2">{course.tagline}</div>
+            <h3 class="font-serif text-2xl font-bold text-plum-900 mb-1">{course.name}</h3>
+            <div class="text-2xl font-bold gradient-text-gold mb-4">{course.price}</div>
+            <p class="text-plum-600 text-sm leading-relaxed mb-5">{course.description}</p>
+            <ul class="space-y-2 mb-7">
+              {course.includes.map((item) => (
+                <li class="flex items-start gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span class="text-plum-600 text-xs">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={course.href} class="flex items-center gap-2 text-rose-500 text-sm font-medium hover:gap-3 transition-all duration-200">
+              Enroll Now
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bundle Note -->
+  <section class="py-16 section-alt">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <div class="card border border-gold-300 p-8">
+        <p class="text-plum-600 text-sm mb-4">
+          Brain-SHIFT™, Align With Strengths, and Emotional Mastery are included in the
+          <strong class="text-plum-900"> Live Aligned Program</strong> and select
+          <strong class="text-plum-900">Membership tiers</strong>.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/programs" class="btn-outline text-sm px-6 py-3">View Programs</a>
+          <a href="/memberships" class="btn-gold text-sm px-6 py-3">View Memberships</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

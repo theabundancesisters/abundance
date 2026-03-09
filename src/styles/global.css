@@ -66,7 +66,6 @@
            hover:shadow-md hover:shadow-plum-100 hover:border-plum-200 hover:-translate-y-0.5;
   }
 
-  /* Legacy alias so existing page code still works */
   .glass-card       { @apply card; }
   .glass-card-hover { @apply card-hover; }
 

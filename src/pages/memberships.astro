@@ -1,0 +1,182 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const memberships = [
+  {
+    name: "Inspired",
+    tagline: "Change Your Life",
+    price: "$111",
+    period: "/month",
+    description: "For those ready to stop overthinking and start moving with clarity and an open heart.",
+    benefits: [
+      "Greater confidence and mental clarity",
+      "Peace around money and decision-making",
+      "Motivation flowing naturally without forcing",
+    ],
+    includes: [
+      "Brain-SHIFT™ Digital Course (workbook, 70 foundation statements, guided audios)",
+      "Brain-SHIFT Circle — Mondays, 5:30 PM PT",
+      "20% member discount on private sessions",
+      "Option to upgrade: Activate Abundance Circle (Wed 4:30 PM PT)",
+    ],
+    href: "https://www.theleadingedge.life/offers/2WfMf5RN",
+    featured: false,
+    border: "border-plum-100",
+  },
+  {
+    name: "Manifestor",
+    tagline: "Fast Track Results",
+    price: "$222",
+    period: "/month",
+    description: "Combines mindset shifts with personalized energetic support for those ready to magnetize rather than chase results.",
+    benefits: [
+      "Unblock hidden resistance and self-sabotage",
+      "Strengthen energetic boundaries and receiving channels",
+      "Divinely-timed breakthroughs with ongoing support",
+    ],
+    includes: [
+      "1 Private 1:1 Energy Session monthly",
+      "Brain-SHIFT™ Digital Course",
+      "Brain-SHIFT Circle — Mondays, 5:30 PM PT",
+      "Activate Abundance Circle — Wednesdays, 4:30 PM PT",
+      "Divine Library (zodiac transmissions, meditations, activations)",
+      "20% member discount on additional sessions",
+    ],
+    href: "https://www.theleadingedge.life/offers/kFBfYDr2",
+    featured: true,
+    border: "border-rose-200",
+  },
+  {
+    name: "Aligned",
+    tagline: "Your Divine Calling",
+    price: "$333",
+    period: "/month",
+    description: "The complete Live Aligned Program as a monthly subscription — for step-by-step transformation with full support.",
+    benefits: [
+      "Embody your soul's vision with confidence",
+      "Align energy with desires to magnetically attract them",
+      "Take grounded, intuitive action from inner power",
+    ],
+    includes: [
+      "1 Private Energy Session monthly",
+      "Divine Coaching: 20-minute weekly check-ins",
+      "Brain-SHIFT Circle — Mondays, 5:30 PM PT",
+      "Activate Abundance Circle — Wednesdays, 4:30 PM PT",
+      "Ascension Circle — Wednesdays, 6:00 PM PT",
+      "Brain-SHIFT™ Digital Course",
+      "Align With Strengths Course + Assessment ($619 value)",
+      "Master Document Tracking System",
+      "25% member discount on additional sessions",
+    ],
+    href: "https://www.theleadingedge.life/offers/X7gAzii9",
+    featured: false,
+    border: "border-gold-300",
+  },
+];
+
+const circles = [
+  { name: "Brain-SHIFT Circle", day: "Mondays", time: "5:30 PM PT", desc: "Subconscious reprogramming and belief clearing" },
+  { name: "Activate Abundance", day: "Wednesdays", time: "4:30 PM PT", desc: "Abundance activation and field attunements" },
+  { name: "Ascension Circle", day: "Wednesdays", time: "6:00 PM PT", desc: "Advanced soul alignment and ascension work" },
+];
+---
+
+<Layout title="Memberships | The Abundance Sisters">
+
+  <!-- Hero -->
+  <section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-20">
+    <div class="absolute inset-0 hero-bg"></div>
+    <div class="absolute top-1/4 right-1/3 w-80 h-80 rounded-full bg-rose-200/20 blur-3xl animate-float"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full bg-gold-300/20 blur-3xl animate-float" style="animation-delay: 2s;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+      <span class="tag bg-gold-100 border border-gold-300 text-gold-600 mb-6 inline-block">Ongoing Divine Support</span>
+      <h1 class="section-heading mb-6">Sacred <span class="gradient-text-gold">Memberships</span></h1>
+      <p class="text-plum-600 text-lg max-w-2xl mx-auto">
+        Join a sacred community with weekly circles, private sessions, and continuous energetic support. Choose the level that calls to your soul.
+      </p>
+    </div>
+  </section>
+
+  <!-- Membership Cards -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-6 items-start">
+        {memberships.map((m) => (
+          <div class={`card border ${m.border} relative overflow-hidden ${m.featured ? "ring-1 ring-rose-200 shadow-xl shadow-rose-100" : ""}`}>
+            {m.featured && (
+              <>
+                <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
+                <span class="absolute top-5 right-5 tag bg-rose-100 border border-rose-200 text-rose-600 text-xs">Most Popular</span>
+              </>
+            )}
+            <div class="p-8">
+              <div class="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-1">{m.tagline}</div>
+              <h2 class="font-serif text-3xl font-bold text-plum-900 mb-1">{m.name}</h2>
+              <div class="flex items-baseline gap-1 mb-4">
+                <span class="text-4xl font-bold gradient-text-gold">{m.price}</span>
+                <span class="text-plum-400 text-sm">{m.period}</span>
+              </div>
+              <p class="text-plum-600 text-sm leading-relaxed mb-6">{m.description}</p>
+
+              <a href={m.href} class={`${m.featured ? "btn-primary" : "btn-outline"} w-full mb-8`}>
+                {m.featured ? "Become A Member" : "Enroll Now"}
+              </a>
+
+              <div class="mb-6">
+                <h4 class="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-3">Transformation Outcomes</h4>
+                <ul class="space-y-2">
+                  {m.benefits.map((b) => (
+                    <li class="flex items-start gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      <span class="text-plum-700 text-sm">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="text-xs font-semibold tracking-widest uppercase text-plum-300 mb-3">What&apos;s Included</h4>
+                <ul class="space-y-2">
+                  {m.includes.map((inc) => (
+                    <li class="flex items-start gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      <span class="text-plum-600 text-xs">{inc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Circles Schedule -->
+  <section class="py-20 relative overflow-hidden section-alt">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+      <div class="mb-10">
+        <span class="tag bg-rose-100 border border-rose-200 text-rose-600 mb-4 inline-block">Sacred Circles</span>
+        <h2 class="section-heading">Weekly <span class="gradient-text">Gathering Schedule</span></h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        {circles.map((circle) => (
+          <div class="card p-6 text-center">
+            <div class="font-semibold text-plum-900 mb-1">{circle.name}</div>
+            <div class="text-gold-500 text-sm font-medium mb-3">{circle.day} · {circle.time}</div>
+            <p class="text-plum-500 text-xs">{circle.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <p class="text-plum-400 text-sm">
+        All memberships include access to the Brain-SHIFT™ Digital Course and community circles. Upgrade anytime. Cancel monthly.
+      </p>
+    </div>
+  </section>
+
+</Layout>
