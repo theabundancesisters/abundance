@@ -121,6 +121,13 @@ export const prerender = true;
     .cta-note--dark { color: #666; }
 
     /* ── MARQUEE LOGOS ── */
+    .marquee-outer {
+      max-width: 860px;
+      margin: 0 auto;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    }
     .logos-strip__label {
       text-align: center;
       font-size: 11px;
@@ -313,8 +320,17 @@ export const prerender = true;
     }
     .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(201,162,39,0.5); }
     .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-back { background: none; border: none; color: var(--plum-400); font-size: 14px; font-weight: 600; cursor: pointer; padding: 8px 0 0; display: block; margin: 0 auto; }
+    .btn-back:hover { color: var(--plum); }
     .form-note { text-align: center; font-size: 13px; color: #999; margin-top: 12px; }
     .error-msg { color: #c0392b; font-size: 13px; margin-bottom: 12px; display: none; }
+    /* Step indicator */
+    .step-indicator { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 20px; }
+    .step-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--cream-200); transition: background 0.2s; flex-shrink: 0; }
+    .step-dot--active { background: var(--gold); }
+    .step-dot--done { background: var(--plum-400); }
+    .step-line { width: 48px; height: 2px; background: var(--cream-200); transition: background 0.2s; }
+    .step-line--done { background: var(--plum-400); }
   </style>
 </head>
 <body>
@@ -341,7 +357,7 @@ export const prerender = true;
     <!-- Marquee logos -->
     <div style="margin-bottom:56px;">
       <p class="logos-strip__label">Featured &amp; Recognized</p>
-      <div style="overflow:hidden; margin-top:16px;">
+      <div class="marquee-outer" style="margin-top:16px;">
         <div class="marquee-track">
           <div class="marquee-set">
             <span class="prime-badge">▶ Now on Prime Video</span>
@@ -471,63 +487,76 @@ export const prerender = true;
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <button class="modal__close" id="modal-close" aria-label="Close">✕</button>
-      <p class="modal__eyebrow">Free Discovery Session, $280 Value</p>
-      <h2 class="modal__title" id="modal-title">Schedule Your Complimentary Discovery Session</h2>
-      <p class="modal__sub">Takes less than 2 minutes. No obligation.</p>
 
-      <form id="discovery-form" onsubmit="handleSubmit(event)" novalidate>
-        <div class="form-row">
-          <div class="field">
-            <label for="firstName">First Name *</label>
-            <input type="text" id="firstName" name="firstName" placeholder="First Name" required />
+      <!-- Step indicator -->
+      <div class="step-indicator">
+        <div class="step-dot step-dot--active" id="dot-1"></div>
+        <div class="step-line"></div>
+        <div class="step-dot" id="dot-2"></div>
+      </div>
+
+      <p class="modal__eyebrow" id="modal-eyebrow">Step 1 of 2</p>
+      <h2 class="modal__title" id="modal-title">Your Contact Info</h2>
+      <p class="modal__sub" id="modal-sub">Quick and easy. No obligation.</p>
+
+      <form id="discovery-form" novalidate>
+
+        <!-- STEP 1 -->
+        <div id="step-1">
+          <div class="form-row">
+            <div class="field">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" placeholder="First Name" required />
+            </div>
+            <div class="field">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
+            </div>
           </div>
           <div class="field">
-            <label for="lastName">Last Name *</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
           </div>
+          <div class="field">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+          </div>
+          <div id="error-1" class="error-msg">Please fill out all fields.</div>
+          <button type="button" class="btn-submit" id="next-btn">Continue →</button>
+          <p class="form-note">Your info is secure and never shared.</p>
         </div>
 
-        <div class="field">
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        <!-- STEP 2 -->
+        <div id="step-2" style="display:none;">
+          <div class="field">
+            <label for="occupation">What is your current occupation? For how long? *</label>
+            <textarea id="occupation" name="occupation" placeholder="e.g. Marketing Manager for 8 years" required></textarea>
+          </div>
+          <div class="field">
+            <label for="frustration">On a scale of 1–10, how frustrated are you? (10 = very frustrated) *</label>
+            <select id="frustration" name="frustration" required>
+              <option value="">Select a number…</option>
+              <option value="1">1 — Mildly dissatisfied</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 — Moderately frustrated</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10 — Very frustrated</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="helpWith">What do you need help with? *</label>
+            <textarea id="helpWith" name="helpWith" placeholder="Describe what's going on and what you're hoping to change…" required></textarea>
+          </div>
+          <div id="error-2" class="error-msg">Please fill out all fields.</div>
+          <button type="submit" class="btn-submit" id="submit-btn">Book My Free Session →</button>
+          <button type="button" class="btn-back" id="back-btn">← Back</button>
         </div>
 
-        <div class="field">
-          <label for="phone">Phone *</label>
-          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
-        </div>
-
-        <div class="field">
-          <label for="occupation">What is your current occupation? For how long? *</label>
-          <textarea id="occupation" name="occupation" placeholder="e.g. Marketing Manager for 8 years" required></textarea>
-        </div>
-
-        <div class="field">
-          <label for="frustration">On a scale of 1–10, how frustrated are you? (10 = very frustrated) *</label>
-          <select id="frustration" name="frustration" required>
-            <option value="">Select a number…</option>
-            <option value="1">1 — Mildly dissatisfied</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 — Moderately frustrated</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10 — Very frustrated</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="helpWith">What do you need help with? *</label>
-          <textarea id="helpWith" name="helpWith" placeholder="Describe what's going on and what you're hoping to change…" required></textarea>
-        </div>
-
-        <div id="form-error" class="error-msg">Please fill out all required fields.</div>
-
-        <button type="submit" class="btn-submit" id="submit-btn">Next Step: Choose Your Time →</button>
-        <p class="form-note">Your info is secure and never shared.</p>
       </form>
     </div>
   </div>
@@ -543,45 +572,73 @@ export const prerender = true;
       overlay.classList.remove('open');
       document.body.style.overflow = '';
     }
+    function showStep(n) {
+      const isStep2 = n === 2;
+      document.getElementById('step-1').style.display = isStep2 ? 'none' : 'block';
+      document.getElementById('step-2').style.display = isStep2 ? 'block' : 'none';
+      document.getElementById('modal-eyebrow').textContent = 'Step ' + n + ' of 2';
+      document.getElementById('modal-title').textContent  = isStep2 ? 'Tell Us About You' : 'Your Contact Info';
+      document.getElementById('modal-sub').textContent    = isStep2 ? 'Almost there.' : 'Quick and easy. No obligation.';
+      // dots
+      document.getElementById('dot-1').className = 'step-dot ' + (isStep2 ? 'step-dot--done' : 'step-dot--active');
+      document.getElementById('dot-2').className = 'step-dot ' + (isStep2 ? 'step-dot--active' : '');
+      document.querySelector('.step-line').className = 'step-line ' + (isStep2 ? 'step-line--done' : '');
+      // scroll modal to top
+      document.querySelector('.modal').scrollTop = 0;
+    }
 
     // CTA buttons
     document.getElementById('hero-cta').addEventListener('click', openModal);
     document.getElementById('checklist-cta').addEventListener('click', openModal);
     document.getElementById('final-cta').addEventListener('click', openModal);
 
-    // Close button & backdrop
+    // Close
     document.getElementById('modal-close').addEventListener('click', closeModal);
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closeModal();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeModal();
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+    // Step 1 → Step 2
+    document.getElementById('next-btn').addEventListener('click', function() {
+      const form    = document.getElementById('discovery-form');
+      const errEl   = document.getElementById('error-1');
+      const firstName = form.firstName.value.trim();
+      const lastName  = form.lastName.value.trim();
+      const email     = form.email.value.trim();
+      const phone     = form.phone.value.trim();
+      if (!firstName || !lastName || !email || !phone) {
+        errEl.style.display = 'block'; return;
+      }
+      errEl.style.display = 'none';
+      showStep(2);
     });
 
-    // Form submission
+    // Step 2 → back
+    document.getElementById('back-btn').addEventListener('click', function() { showStep(1); });
+
+    // Submit
     document.getElementById('discovery-form').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const form  = e.target;
-      const errEl = document.getElementById('form-error');
-      const btn   = document.getElementById('submit-btn');
-
-      const firstName   = form.firstName.value.trim();
-      const lastName    = form.lastName.value.trim();
-      const email       = form.email.value.trim();
-      const phone       = form.phone.value.trim();
+      const form        = e.target;
+      const errEl       = document.getElementById('error-2');
+      const btn         = document.getElementById('submit-btn');
       const occupation  = form.occupation.value.trim();
       const frustration = form.frustration.value;
       const helpWith    = form.helpWith.value.trim();
 
-      if (!firstName || !lastName || !email || !phone || !occupation || !frustration || !helpWith) {
-        errEl.style.display = 'block';
-        return;
+      if (!occupation || !frustration || !helpWith) {
+        errEl.style.display = 'block'; return;
       }
       errEl.style.display = 'none';
       btn.disabled = true;
       btn.textContent = 'Submitting…';
 
-      const payload = { firstName, lastName, email, phone, occupation, frustration, helpWith };
+      const payload = {
+        firstName:   form.firstName.value.trim(),
+        lastName:    form.lastName.value.trim(),
+        email:       form.email.value.trim(),
+        phone:       form.phone.value.trim(),
+        occupation, frustration, helpWith,
+      };
 
       try {
         const res  = await fetch('/api/submit-application', {
