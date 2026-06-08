@@ -4,24 +4,13 @@ export const prerender = false;
 
 const KAJABI_FORM_URL = "https://www.theleadingedge.life/forms/2148718151";
 
-/** Grab a fresh Kajabi CSRF token from the form page */
-async function getKajabiToken(): Promise<string> {
-  const res  = await fetch(KAJABI_FORM_URL, { headers: { Accept: "text/html" } });
-  const html = await res.text();
-  const match = html.match(/name="authenticity_token"[^>]*value="([^"]+)"/);
-  if (!match) throw new Error("Could not find Kajabi authenticity_token");
-  return match[1];
-}
-
 /** Submit to Kajabi "Opt-in Career" form */
 async function submitToKajabi(fields: {
   firstName: string; lastName: string; email: string; phone: string;
   occupation: string; frustration: string; helpWith: string;
 }): Promise<void> {
-  const token = await getKajabiToken();
-
+  // Try without CSRF token first (works for server-side embed requests)
   const body = new URLSearchParams({
-    authenticity_token:              token,
     "form_submission[custom_10]":    fields.firstName,
     "form_submission[custom_11]":    fields.lastName,
     "form_submission[email]":        fields.email,
@@ -35,29 +24,68 @@ async function submitToKajabi(fields: {
     method: "POST",
     headers: {
       "Content-Type":     "application/x-www-form-urlencoded",
-      Accept:             "application/json, text/javascript",
+      Accept:             "application/json, text/javascript, */*",
       "X-Requested-With": "XMLHttpRequest",
+      Referer:            KAJABI_FORM_URL,
+      Origin:             "https://www.theleadingedge.life",
     },
     body: body.toString(),
   });
 
+  // If CSRF required, fetch token and retry
+  if (res.status === 422 || res.status === 403) {
+    const pageRes  = await fetch(KAJABI_FORM_URL, { headers: { Accept: "text/html" } });
+    const html     = await pageRes.text();
+    const match    = html.match(/name="authenticity_token"[^>]*value="([^"]+)"/);
+    if (!match) throw new Error("Could not find Kajabi CSRF token");
+
+    body.set("authenticity_token", match[1]);
+    const retryRes = await fetch(`${KAJABI_FORM_URL}/form_submissions`, {
+      method: "POST",
+      headers: {
+        "Content-Type":     "application/x-www-form-urlencoded",
+        Accept:             "application/json, text/javascript, */*",
+        "X-Requested-With": "XMLHttpRequest",
+        Referer:            KAJABI_FORM_URL,
+        Origin:             "https://www.theleadingedge.life",
+      },
+      body: body.toString(),
+    });
+    if (!retryRes.ok) {
+      const text = await retryRes.text();
+      throw new Error(`Kajabi retry failed ${retryRes.status}: ${text.slice(0, 200)}`);
+    }
+    return;
+  }
+
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`Kajabi submit failed ${res.status}: ${text.slice(0, 300)}`);
+    throw new Error(`Kajabi submit failed ${res.status}: ${text.slice(0, 200)}`);
   }
 }
 
-/** Upsert contact in GHL and add a note with full application details */
+/** Upsert contact in GHL + add application note */
 async function submitToGHL(
   apiKey: string,
-  locationId: string,
+  locationId: string | undefined,
   qualified: boolean,
   fields: {
     firstName: string; lastName: string; email: string; phone: string;
     occupation: string; frustration: string; helpWith: string;
   }
 ): Promise<void> {
-  // 1. Upsert contact
+  const contactPayload: Record<string, unknown> = {
+    firstName: fields.firstName,
+    lastName:  fields.lastName,
+    email:     fields.email,
+    phone:     fields.phone,
+    tags:      ["career-crossroads", qualified ? "cc-qualified" : "cc-not-qualified"],
+    source:    "Career Crossroads Landing Page",
+  };
+
+  // Include locationId if we have it — PIT tokens may infer it automatically
+  if (locationId) contactPayload.locationId = locationId;
+
   const upsertRes = await fetch("https://services.leadconnectorhq.com/contacts/upsert", {
     method: "POST",
     headers: {
@@ -65,28 +93,22 @@ async function submitToGHL(
       Version:        "2021-07-28",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      locationId,
-      firstName: fields.firstName,
-      lastName:  fields.lastName,
-      email:     fields.email,
-      phone:     fields.phone,
-      tags:      ["career-crossroads", qualified ? "cc-qualified" : "cc-not-qualified"],
-      source:    "Career Crossroads Landing Page",
-    }),
+    body: JSON.stringify(contactPayload),
   });
 
+  const responseText = await upsertRes.text();
+
   if (!upsertRes.ok) {
-    const text = await upsertRes.text();
-    throw new Error(`GHL upsert failed ${upsertRes.status}: ${text.slice(0, 300)}`);
+    throw new Error(`GHL upsert failed ${upsertRes.status}: ${responseText.slice(0, 300)}`);
   }
 
-  const upsertData = await upsertRes.json();
-  const contactId  = upsertData.contact?.id;
+  let upsertData: Record<string, any>;
+  try { upsertData = JSON.parse(responseText); } catch { return; }
 
+  const contactId = upsertData.contact?.id;
   if (!contactId) return;
 
-  // 2. Add note with full application answers
+  // Add a note with the full application answers
   await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
     method: "POST",
     headers: {
@@ -100,8 +122,8 @@ async function submitToGHL(
         "─────────────────────────────",
         `Occupation: ${fields.occupation}`,
         `Frustration Score: ${fields.frustration}/10`,
-        `What they need help with:\n${fields.helpWith}`,
-        `Qualification: ${qualified ? "✅ Qualified (7+)" : "⚠️ Not yet qualified (<7)"}`,
+        `Help needed: ${fields.helpWith}`,
+        `Qualified: ${qualified ? "Yes (score 7+)" : "No (score <7)"}`,
       ].join("\n"),
       userId: contactId,
     }),
@@ -125,25 +147,18 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const apiKey     = import.meta.env.GHL_API_KEY;
-  const locationId = import.meta.env.GHL_LOCATION_ID;
+  const locationId = import.meta.env.GHL_LOCATION_ID; // optional — helps but PIT may not need it
   const score      = parseInt(frustration, 10);
   const qualified  = score >= 7;
   const fields     = { firstName, lastName, email, phone, occupation, frustration, helpWith };
 
-  if (!locationId) {
-    console.error("GHL_LOCATION_ID env var is not set — skipping GHL submission");
-  }
-
-  // Fire both in parallel — neither blocks the user redirect
   const [ghlResult, kajabiResult] = await Promise.allSettled([
-    locationId
-      ? submitToGHL(apiKey, locationId, qualified, fields)
-      : Promise.reject(new Error("GHL_LOCATION_ID not configured")),
+    submitToGHL(apiKey, locationId, qualified, fields),
     submitToKajabi(fields),
   ]);
 
-  if (ghlResult.status    === "rejected") console.error("GHL error:",    ghlResult.reason?.message ?? ghlResult.reason);
-  if (kajabiResult.status === "rejected") console.error("Kajabi error:", kajabiResult.reason?.message ?? kajabiResult.reason);
+  if (ghlResult.status    === "rejected") console.error("GHL error:",    String(ghlResult.reason));
+  if (kajabiResult.status === "rejected") console.error("Kajabi error:", String(kajabiResult.reason));
 
   return new Response(JSON.stringify({ success: true, qualified }), { status: 200, headers });
 };
