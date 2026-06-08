@@ -34,11 +34,9 @@ export const prerender = true;
       text-align: center;
       border-bottom: 1px solid #ede0cc;
     }
-    .top-bar__logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--plum);
+    .top-bar__logo img {
+      height: 48px;
+      width: auto;
     }
 
     .hero {
@@ -86,21 +84,7 @@ export const prerender = true;
       margin: 0 auto;
     }
 
-    .summary-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 20px;
-      justify-content: center;
-      margin: 16px auto 0;
-      font-size: 14px;
-      color: var(--plum-400);
-      max-width: 600px;
-      padding: 0 24px;
-    }
-    .summary-strip span { display: flex; align-items: center; gap: 5px; }
-    .summary-strip strong { color: var(--plum); font-weight: 600; }
-
-    .calendar-wrap {
+.calendar-wrap {
       max-width: 900px;
       margin: 28px auto 0;
       padding: 0 16px 48px;
@@ -120,20 +104,14 @@ export const prerender = true;
 <body>
 
   <div class="top-bar">
-    <div class="top-bar__logo">Career Crossroads™</div>
+    <div class="top-bar__logo"><img src="/images/logo-leading-edge.png" alt="The Leading Edge Life" /></div>
   </div>
 
   <section class="hero">
     <div class="approved-badge">Application Pre-Approved</div>
-    <h1 class="hero__headline">Last Step. <em>Choose a time below.</em></h1>
+    <h1 class="hero__headline">Last Step. <em>Pick a time below.</em></h1>
     <p class="hero__sub">Your info is saved. Just pick a date and time that works for you.</p>
   </section>
-
-  <div class="summary-strip" id="summary-strip" style="display:none;">
-    <span>👋 <strong id="s-name"></strong></span>
-    <span>✉️ <strong id="s-email"></strong></span>
-    <span>📞 <strong id="s-phone"></strong></span>
-  </div>
 
   <div class="calendar-wrap">
     <iframe id="booking-iframe"
@@ -143,28 +121,20 @@ export const prerender = true;
     </iframe>
   </div>
 
+  <footer style="text-align:center; padding: 28px 24px; font-size:12px; color:#888; border-top:1px solid #ede0cc;">
+    <a href="https://www.theleadingedge.life/pages/terms" target="_blank" style="color:#888; text-decoration:none; margin:0 12px;">Terms of Service</a>
+    <a href="https://www.theleadingedge.life/pages/privacy-policy" target="_blank" style="color:#888; text-decoration:none; margin:0 12px;">Privacy Policy</a>
+  </footer>
+
   <script is:inline>
     const p = new URLSearchParams(window.location.search);
-    const firstName = p.get('firstName') || '';
-    const lastName  = p.get('lastName')  || '';
-    const email     = p.get('email')     || '';
-    const phone     = p.get('phone')     || '';
-
-    if (firstName || email) {
-      const strip = document.getElementById('summary-strip');
-      strip.style.display = 'flex';
-      document.getElementById('s-name').textContent  = [firstName, lastName].filter(Boolean).join(' ');
-      document.getElementById('s-email').textContent = email;
-      document.getElementById('s-phone').textContent = phone;
-
-      const iframe = document.getElementById('booking-iframe');
-      const url = new URL(iframe.src);
-      if (firstName) url.searchParams.set('first_name', firstName);
-      if (lastName)  url.searchParams.set('last_name',  lastName);
-      if (email)     url.searchParams.set('email',      email);
-      if (phone)     url.searchParams.set('phone',      phone);
-      iframe.src = url.toString();
-    }
+    const iframe = document.getElementById('booking-iframe');
+    const url = new URL(iframe.src);
+    ['firstName','lastName','email','phone'].forEach(function(k) {
+      const v = p.get(k);
+      if (v) url.searchParams.set(k === 'firstName' ? 'first_name' : k === 'lastName' ? 'last_name' : k, v);
+    });
+    iframe.src = url.toString();
   </script>
 
 </body>
