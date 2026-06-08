@@ -1,0 +1,774 @@
+<!-- ============================================================
+     KAJABI CUSTOM CODE EMBED — Career Crossroads™ Landing Page
+     Paste this entire file into a Kajabi "Custom Code" block.
+============================================================ -->
+
+<!-- Google Fonts + Font Awesome -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+  .cc-wrap {
+    --cream:     #fdf9f4;
+    --cream-100: #f7f0e6;
+    --cream-200: #ede0cc;
+    --plum:      #2d1b3d;
+    --plum-600:  #4a2d65;
+    --plum-400:  #7b5499;
+    --rose:      #c9627a;
+    --gold:      #c9a227;
+    --gold-light:#f5e9c5;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #2d1b3d;
+  }
+
+  .cc-container { width: 100%; max-width: 780px; margin: 0 auto; padding: 0 40px; }
+  .cc-container--wide { max-width: 1100px; }
+  .cc-container--full { max-width: 100%; padding: 0; }
+
+  /* ── SECTION 1: HERO ── */
+  .cc-hero {
+    background: linear-gradient(160deg, #2d1b3d 0%, #4a2d65 60%, #7b5499 100%);
+    padding: 80px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cc-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,162,39,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cc-hero__eyebrow {
+    display: inline-block;
+    background: var(--gold-light);
+    color: #7a5c00;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+  .cc-hero__headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 auto 16px;
+    max-width: 700px;
+  }
+  .cc-hero__headline em { font-style: italic; color: #f5d97a; }
+  .cc-hero__guarantee {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(19px, 3vw, 27px);
+    font-style: italic;
+    color: #f5d97a;
+    margin-bottom: 32px;
+  }
+  .cc-hero__divider {
+    width: 60px; height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin: 28px auto;
+  }
+  .cc-hero__subhead {
+    font-size: clamp(16px, 2.2vw, 20px);
+    font-weight: 600;
+    color: #e8d5f5;
+    margin-bottom: 18px;
+  }
+  .cc-hero__body {
+    color: #d4bfe8;
+    font-size: 17px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── SECTION 2: FORM ── */
+  .cc-form-section {
+    background: var(--cream-100);
+    padding: 36px 24px;
+    border-top: 4px solid var(--gold);
+    text-align: center;
+  }
+  .cc-form-section__label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--plum-400);
+    margin-bottom: 8px;
+  }
+  .cc-form-section__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 700;
+    color: var(--plum);
+    margin-bottom: 8px;
+  }
+  .cc-form-section__sub {
+    color: var(--plum-400);
+    margin-bottom: 24px;
+    font-size: 16px;
+  }
+  .cc-form-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  /* override container width for form section */
+  .cc-form-section .cc-container { max-width: 900px; }
+
+  /* ── SECTION 3: PROSE / TRANSITION ── */
+  .cc-prose-section {
+    padding: 40px 24px;
+    background: #ffffff;
+  }
+  .cc-prose-body {
+    max-width: 660px;
+    margin: 0 auto;
+    color: #3d2552;
+    font-size: 17px;
+  }
+  .cc-prose-body p { margin-bottom: 16px; }
+  .cc-prose-body p:last-child { margin-bottom: 0; }
+  .cc-prose-body strong { color: var(--plum); font-weight: 600; }
+
+  /* ── SHARED: SECTION LABELS & HEADINGS ── */
+  .cc-section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .cc-section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 700;
+    color: var(--plum);
+    line-height: 1.25;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  /* ── SECTION 4: CHECKLIST ── */
+  .cc-checklist-section {
+    padding: 64px 24px;
+    background: linear-gradient(180deg, #fdf9f4 0%, #f7f0e6 100%);
+  }
+  .cc-checklist-section .cc-container { max-width: 900px; }
+  .cc-checklist {
+    list-style: none;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0;
+  }
+  .cc-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    background: white;
+    border-radius: 12px;
+    padding: 22px 36px;
+    box-shadow: 0 2px 12px rgba(45,27,61,0.07);
+    font-size: 16px;
+    color: #3d2552;
+    line-height: 1.55;
+  }
+
+  /* ── SECTION 5: WHY PEOPLE DON'T TAKE ACTION ── */
+  .cc-stuck-section {
+    padding: 64px 24px;
+    background: var(--plum);
+    text-align: center;
+  }
+  .cc-stuck-section .cc-section-heading { color: white; }
+  .cc-stuck-section .cc-section-label { color: var(--gold); }
+  .cc-stuck-body {
+    color: #c8aee0;
+    font-size: 17px;
+    max-width: 600px;
+    margin: 0 auto 18px;
+  }
+  .cc-stuck-body p { margin-bottom: 14px; }
+  .cc-stuck-body strong { color: #e8d5f5; }
+  .cc-doubt-list {
+    list-style: none;
+    max-width: 500px;
+    margin: 24px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+  }
+  .cc-doubt-list li {
+    background: rgba(255,255,255,0.07);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 13px 18px;
+    color: #ddc9ef;
+    font-style: italic;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  /* ── SECTION 6: THE DIFFERENCE ── */
+  .cc-difference-section {
+    padding: 64px 24px;
+    background: var(--cream);
+  }
+  .cc-results-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 720px;
+    margin: 28px auto 0;
+  }
+  .cc-result-chip {
+    background: white;
+    border: 2px solid var(--cream-200);
+    border-radius: 12px;
+    padding: 24px 16px 20px;
+    text-align: center;
+    color: #2d1b3d;
+    box-shadow: 0 2px 8px rgba(45,27,61,0.07);
+    width: calc(33.333% - 12px);
+    min-width: 180px;
+  }
+  .cc-result-chip i {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #7b5499;
+  }
+  .cc-result-chip .cc-chip-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  @media (max-width: 600px) {
+    .cc-result-chip { width: calc(50% - 8px); min-width: 140px; }
+    .cc-result-chip .cc-chip-label { font-size: 17px; }
+  }
+
+  /* ── SECTION 7: IMAGINE / FUTURE SELF ── */
+  .cc-imagine-section {
+    padding: 64px 24px;
+    background: linear-gradient(135deg, #4a2d65 0%, #2d1b3d 100%);
+    text-align: center;
+  }
+  .cc-imagine-section .cc-section-heading { color: white; }
+  .cc-imagine-section .cc-section-label { color: var(--gold); }
+  .cc-imagine-body {
+    color: #c8aee0;
+    font-size: 17px;
+    max-width: 580px;
+    margin: 0 auto 24px;
+  }
+  .cc-imagine-body p { margin-bottom: 12px; }
+  .cc-outcome-list {
+    list-style: none;
+    max-width: 580px;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+  }
+  .cc-outcome-list li {
+    background: rgba(201,162,39,0.12);
+    border: 1px solid rgba(201,162,39,0.3);
+    border-radius: 8px;
+    padding: 13px 18px;
+    color: #f0e0c0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+  }
+  .cc-outcome-list li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION 8: VSL VIDEO ── */
+  .cc-vsl-section {
+    padding: 64px 40px;
+    background: var(--cream-100);
+    text-align: center;
+  }
+  .cc-vsl-section .cc-container--wide { max-width: 1100px; }
+  .cc-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    max-width: 100%;
+    margin: 28px auto 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(45,27,61,0.2);
+  }
+  .cc-video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* ── SECTION 9: SESSION DETAILS ── */
+  .cc-session-section {
+    padding: 64px 40px;
+    background: #ffffff;
+  }
+  .cc-session-section .cc-container { max-width: 1000px; }
+  .cc-session-card {
+    max-width: 100%;
+    margin: 28px auto 0;
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 48px 64px;
+    box-shadow: 0 4px 24px rgba(45,27,61,0.09);
+  }
+  .cc-session-card__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--plum);
+    margin-bottom: 18px;
+  }
+  .cc-session-card__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .cc-session-card__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 16px;
+    color: #3d2552;
+  }
+  .cc-session-card__list li::before {
+    content: '✓';
+    color: var(--plum-400);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── CTA BUTTON ── */
+  .cc-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #c9a227 0%, #e8c040 100%);
+    color: #2d1b3d !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 18px 40px;
+    border-radius: 100px;
+    text-decoration: none !important;
+    box-shadow: 0 4px 20px rgba(201,162,39,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .cc-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(201,162,39,0.5);
+  }
+  .cc-cta-arrow {
+    display: block;
+    font-size: 26px;
+    margin: 18px auto 8px;
+    text-align: center;
+    animation: cc-bounce 1.6s infinite;
+  }
+  @keyframes cc-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ── SECTION 10: FINAL CTA ── */
+  .cc-final-cta {
+    padding: 72px 24px;
+    background: linear-gradient(160deg, #2d1b3d 0%, #4a2d65 100%);
+    text-align: center;
+  }
+  .cc-final-cta__headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 700;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .cc-final-cta__guarantee {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(17px, 2.5vw, 23px);
+    font-style: italic;
+    color: #f5d97a;
+    margin-bottom: 30px;
+  }
+  .cc-final-cta__note { color: #a08abd; font-size: 14px; margin-top: 18px; }
+
+  /* ── SECTION 11a: VIDEO TESTIMONIALS ── */
+  .cc-video-testimonials {
+    padding: 72px 40px;
+    background: var(--cream);
+  }
+  .cc-video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 100%;
+    margin: 36px auto 0;
+  }
+  .cc-video-item .cc-video-wrapper { margin-top: 0; max-width: 100%; }
+  @media (max-width: 640px) {
+    .cc-video-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── SECTION 11b: RECOGNITIONS ── */
+  .cc-recognition-section {
+    padding: 64px 24px;
+    background: #ffffff;
+    text-align: center;
+  }
+  .cc-recognition-section .cc-section-heading { color: var(--plum); }
+  .cc-recognition-section .cc-section-label { color: var(--rose); }
+  .cc-prime-badge {
+    display: inline-block;
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 12px 24px;
+    color: #7a5c00;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-style: italic;
+    margin-bottom: 36px;
+  }
+  .cc-prime-badge strong { font-style: normal; color: var(--plum); display: block; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+  .cc-logos-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .cc-logos-row img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.2s;
+    opacity: 1;
+  }
+  .cc-logos-row img:hover { opacity: 0.85; }
+  @media (max-width: 600px) {
+    .cc-logos-row img { height: 44px; }
+  }
+
+  /* ── SECTION 11c: FACEBOOK SCREENSHOTS ── */
+  .cc-fb-section {
+    padding: 72px 40px;
+    background: var(--cream-100);
+  }
+  .cc-fb-section .cc-container--wide { max-width: 100%; padding: 0; }
+  .cc-fb-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    margin: 36px auto 0;
+  }
+  .cc-fb-grid img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(45,27,61,0.12);
+  }
+  @media (max-width: 640px) {
+    .cc-fb-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Responsive misc ── */
+  @media (max-width: 600px) {
+    .cc-session-card { padding: 24px 18px; }
+  }
+</style>
+
+<div class="cc-wrap">
+
+  <!-- ═══ SECTION 1: HERO ═══ -->
+  <section class="cc-hero">
+    <div class="cc-container">
+      <span class="cc-hero__eyebrow">Career Crossroads™ Process</span>
+      <h1 class="cc-hero__headline">
+        Get Clear On Your Next Career Move, <em>And Build A Plan To Make It Happen</em>
+      </h1>
+      <p class="cc-hero__guarantee">In 60 Days Or You Don't Pay</p>
+      <div class="cc-hero__divider"></div>
+      <p class="cc-hero__subhead">Not Sure If You Need A New Job, A New Career, Or Simply A Better Work Situation?</p>
+      <p class="cc-hero__body">If you've been feeling dissatisfied, stressed, or unfulfilled in your current work, but aren't sure what to do next, you are not alone.</p>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 2: FORM ═══ -->
+  <section class="cc-form-section" id="cc-apply">
+    <div class="cc-container">
+      <p class="cc-form-section__label">Free Discovery Session — $280 Value</p>
+      <h2 class="cc-form-section__heading">⬇️ Schedule Your Complimentary Discovery Session Below</h2>
+      <p class="cc-form-section__sub">Takes less than 2 minutes. No obligation.</p>
+      <div class="cc-form-wrapper">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/8cvAMkqDCqcxh388yJJI"
+          style="width:100%;height:789px;border:none;border-radius:4px"
+          id="inline-8cvAMkqDCqcxh388yJJI"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Opt-in Career"
+          data-height="789"
+          data-layout-iframe-id="inline-8cvAMkqDCqcxh388yJJI"
+          data-form-id="8cvAMkqDCqcxh388yJJI"
+          title="Opt-in Career">
+        </iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 3: TRANSITION ═══ -->
+  <section class="cc-prose-section">
+    <div class="cc-container">
+      <div class="cc-prose-body">
+        <p>Maybe you've looked at job postings.</p>
+        <p>Maybe you've thought about starting a business.</p>
+        <p>Maybe you've wondered whether a different boss, team, culture, or more flexibility would make all the difference.</p>
+        <p><strong>You have options. The real challenge is knowing which one is right for you - and what steps to take.</strong></p>
+        <p>That's where the <strong>Career Crossroads™ Process</strong> comes in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 4: CHECKLIST ═══ -->
+  <section class="cc-checklist-section">
+    <div class="cc-container">
+      <p class="cc-section-label">Is This For You?</p>
+      <h2 class="cc-section-heading">The Career Crossroads™ Process Is For You If…</h2>
+      <ul class="cc-checklist">
+        <li>You've been thinking about a career change for months, or even years, but don't want to start over from scratch.</li>
+        <li>You keep pushing through the feeling that you've outgrown your current job, title, or career path.</li>
+        <li>You've considered starting a business, but the endless options, risks, and decisions have kept you stuck.</li>
+        <li>Deep down, you know you're meant to be doing something different, even if you can't quite see what that is yet.</li>
+        <li>You want a proven roadmap, not a blind leap, when it comes to making a major career transition.</li>
+        <li>You've browsed job postings and occasionally applied, but nothing has felt exciting enough to make a move.</li>
+        <li>You're looking for work that feels meaningful, energizing, and aligned with who you are today - not who you were 10 years ago.</li>
+        <li>You want clarity, confidence, and a realistic plan before making your next career move.</li>
+        <li>You're curious about what could happen if you dedicated just 60 days to creating a future you're genuinely excited about.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 5: WHY PEOPLE DON'T TAKE ACTION ═══ -->
+  <section class="cc-stuck-section">
+    <div class="cc-container">
+      <p class="cc-section-label">The Real Problem</p>
+      <h2 class="cc-section-heading">Why Most People Don't Take Action</h2>
+      <div class="cc-stuck-body">
+        <p>Most people don't stay in an unfulfilling job or career because they lack ambition.</p>
+        <p><strong>They stay because they're afraid of making the wrong move.</strong></p>
+      </div>
+      <ul class="cc-doubt-list">
+        <li>What if the next job isn't any better?</li>
+        <li>What if starting a business isn't the answer?</li>
+        <li>What if you leave and regret it?</li>
+      </ul>
+      <div class="cc-stuck-body">
+        <p>So they keep thinking about making a change…</p>
+        <p><strong>Without ever feeling clear enough to take action.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 6: THE DIFFERENCE ═══ -->
+  <section class="cc-difference-section">
+    <div class="cc-container">
+      <p class="cc-section-label">The Solution</p>
+      <h2 class="cc-section-heading">The Career Crossroads™ Difference</h2>
+      <div class="cc-prose-body" style="text-align:center;">
+        <p>Unlike typical career assessments and coaching programs, Career Crossroads™ gives you a proven step-by-step process that has helped thousands of professionals for decades.</p>
+      </div>
+      <div class="cc-results-flex">
+        <div class="cc-result-chip"><i class="fa-solid fa-rocket"></i><span class="cc-chip-label">Launch a business</span></div>
+        <div class="cc-result-chip"><i class="fa-solid fa-arrows-rotate"></i><span class="cc-chip-label">Change careers</span></div>
+        <div class="cc-result-chip"><i class="fa-solid fa-briefcase"></i><span class="cc-chip-label">Land better opportunities</span></div>
+        <div class="cc-result-chip"><i class="fa-solid fa-chart-line"></i><span class="cc-chip-label">Increase income &amp; impact</span></div>
+        <div class="cc-result-chip"><i class="fa-solid fa-star"></i><span class="cc-chip-label">Create purpose-driven work</span></div>
+      </div>
+      <div class="cc-prose-body" style="text-align:center; margin-top:32px;">
+        <p>Most importantly, you'll walk away with more than insight.</p>
+        <p><strong>You'll gain clarity on your best next move and a personalized roadmap for making it happen.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 7: IMAGINE / FUTURE SELF ═══ -->
+  <section class="cc-imagine-section">
+    <div class="cc-container">
+      <p class="cc-section-label">Your Future Self</p>
+      <h2 class="cc-section-heading">Imagine 60 Days From Now…</h2>
+      <div class="cc-imagine-body">
+        <p>Instead of wondering what you should do next…</p>
+        <p><strong style="color:white;">You'll know.</strong></p>
+      </div>
+      <ul class="cc-outcome-list">
+        <li>You'll have full clarity and a vision of your options.</li>
+        <li>You'll know which path best fits you now and how it aligns with your strengths, goals, values, and lifestyle.</li>
+        <li>You'll have a practical action plan for moving forward with confidence.</li>
+      </ul>
+      <div class="cc-imagine-body">
+        <p>No more second-guessing.</p>
+        <p><strong style="color:white;">Just clarity, direction, and momentum.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 8: VSL VIDEO ═══ -->
+  <section class="cc-vsl-section">
+    <div class="cc-container cc-container--wide">
+      <p class="cc-section-label">Watch This First</p>
+      <h2 class="cc-section-heading">Hear How The Career Crossroads™ Process Works</h2>
+      <div class="cc-video-wrapper">
+        <iframe src="https://www.youtube.com/embed/ZFhxGJcAVyk?rel=0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 9: SESSION DETAILS ═══ -->
+  <section class="cc-session-section">
+    <div class="cc-container">
+      <p class="cc-section-label">Your Next Step</p>
+      <h2 class="cc-section-heading">Your Next Career Move Starts Here</h2>
+      <div class="cc-prose-body" style="text-align:center;">
+        <p>Book your <strong>complimentary Career Discovery Session (a $280 value)</strong> with a certified professional.</p>
+      </div>
+      <div class="cc-session-card">
+        <p class="cc-session-card__title">During your session, you'll discover:</p>
+        <ul class="cc-session-card__list">
+          <li>What's really causing your dissatisfaction at work</li>
+          <li>Whether you need a new job, a new career, or a new approach</li>
+          <li>The opportunities that may be available to you right now</li>
+          <li>How the Career Crossroads™ Process can help you create a clear path forward</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 10: FINAL CTA ═══ -->
+  <section class="cc-final-cta">
+    <div class="cc-container">
+      <h2 class="cc-final-cta__headline">
+        Get Clear On Your Next Career Move,<br/>And Build A Plan To Make It Happen.
+      </h2>
+      <p class="cc-final-cta__guarantee">In 60 Days Or You Don't Pay.</p>
+      <span class="cc-cta-arrow">⬇️</span>
+      <a href="#cc-apply" class="cc-btn">Schedule Your Complimentary Discovery Session</a>
+      <p class="cc-final-cta__note">Complimentary session — a $280 value. No obligation.</p>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 11a: WHAT CLIENTS ARE SAYING ═══ -->
+  <section class="cc-video-testimonials">
+    <div class="cc-container cc-container--wide">
+      <p class="cc-section-label">Real Results</p>
+      <h2 class="cc-section-heading">What Clients Are Saying</h2>
+      <div class="cc-video-grid">
+        <div class="cc-video-item">
+          <div class="cc-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/4AtJXTj7-1w?rel=0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="cc-video-item">
+          <div class="cc-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/QAigpSjuDe4?rel=0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="cc-video-item">
+          <div class="cc-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/vuprmI0VYhU?rel=0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="cc-video-item">
+          <div class="cc-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/ZgRayVAWqNY?rel=0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 11b: PROFESSIONAL RECOGNITIONS ═══ -->
+  <section class="cc-recognition-section">
+    <div class="cc-container cc-container--wide">
+      <p class="cc-section-label">Professional Recognitions &amp; Appearances</p>
+      <h2 class="cc-section-heading" style="color:white;">Now Showing on Prime Video</h2>
+      <div class="cc-prime-badge">
+        <strong>Now Showing on Prime Video</strong>
+        "Bliss Up Exploring Energy The Ultimate Healer"
+      </div>
+      <div class="cc-logos-row">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/effc3e2-d5f4-284f-6501-5835e0ff035_5a486bcc-1733-4a26-93ad-87a35c6b6691.png" alt="Recognition" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/8b38b4f-540b-5abc-bbbf-f1aa5527eceb_b3f3c077-2980-4311-bada-7468a0aef654.png" alt="Recognition" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/b5c703a-6674-aa63-e8b-e5b7b1a6f25_d74d2c3a-b57c-4df2-9893-ed12c87c63a7.png" alt="Recognition" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/c1431-557-802e-3bf4-7206efe01ab_cb1fc594-a909-458b-a1d9-f674013f89cc.JPG" alt="Recognition" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2162162086/settings_images/c6e60b-c84e-f2d4-6cae-bcbc76b84436_Screenshot_2025-08-05_172352.png" alt="Recognition" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 11c: FACEBOOK SCREENSHOTS ═══ -->
+  <section class="cc-fb-section">
+    <div class="cc-container cc-container--wide">
+      <p class="cc-section-label">Client Love</p>
+      <h2 class="cc-section-heading">What People Are Saying</h2>
+      <div class="cc-fb-grid">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/4e2ded-063-5cd5-058f-bd43e078de26_Screenshot_2026-06-01_132143.png" alt="Client feedback" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/de6e60a-acb-7ff1-6b5-354ae2c41462_Screenshot_2026-06-01_132156.png" alt="Client feedback" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/b30860-dc04-5558-c062-b8b5c1ccfa_Screenshot_2026-06-01_132241.png" alt="Client feedback" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/62b87f4-ff13-24f1-25ee-55235d8d176_Screenshot_2026-06-01_132322.png" alt="Client feedback" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/17e1a51-27b1-d815-36b-fe26717befdf_Screenshot_2026-06-01_132350.png" alt="Client feedback" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/eaa676d-c344-084-1d86-8b6e447e136_Screenshot_2026-06-01_133900.png" alt="Client feedback" />
+      </div>
+    </div>
+  </section>
+
+</div><!-- end .cc-wrap -->

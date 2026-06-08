@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Icon Font Preview</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Raleway:wght@600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body { background: #fdf9f4; padding: 40px 24px; margin: 0; }
+    h2 {
+      text-align: center;
+      color: #2d1b3d;
+      margin: 0 auto 8px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+    .subtitle {
+      text-align: center;
+      color: #7b5499;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      margin-bottom: 28px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+    .center-2 {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      max-width: 700px;
+      margin: 0 auto 0;
+    }
+    .chip {
+      background: white;
+      border: 2px solid #ede0cc;
+      border-radius: 12px;
+      padding: 24px 16px 20px;
+      text-align: center;
+      color: #2d1b3d;
+      box-shadow: 0 2px 8px rgba(45,27,61,0.07);
+      width: 100%;
+    }
+    .chip i {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #7b5499;
+    }
+
+    /* Font style A — Inter Bold */
+    .font-a .label { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; }
+
+    /* Font style B — Playfair Display (serif, elegant) */
+    .font-b .label { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; line-height: 1.3; }
+
+    /* Font style C — Raleway (clean, modern, slightly wide) */
+    .font-c .label { font-family: 'Raleway', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
+
+    /* Font style D — Montserrat (bold, punchy) */
+    .font-d .label { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.02em; }
+
+    .divider { border: none; border-top: 1px solid #ede0cc; margin: 48px auto; max-width: 700px; }
+  </style>
+</head>
+<body>
+
+  <!-- OPTION A -->
+  <h2>Option A — Inter Bold</h2>
+  <p class="subtitle">Clean, modern, straightforward</p>
+  <div class="grid">
+    <div class="chip font-a"><i class="fa-solid fa-rocket"></i><span class="label">Launch a business</span></div>
+    <div class="chip font-a"><i class="fa-solid fa-arrows-rotate"></i><span class="label">Change careers</span></div>
+    <div class="chip font-a"><i class="fa-solid fa-briefcase"></i><span class="label">Land better opportunities</span></div>
+  </div>
+  <div class="center-2">
+    <div class="chip font-a" style="max-width:214px;"><i class="fa-solid fa-chart-line"></i><span class="label">Increase income &amp; impact</span></div>
+    <div class="chip font-a" style="max-width:214px;"><i class="fa-solid fa-star"></i><span class="label">Create purpose-driven work</span></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- OPTION B -->
+  <h2>Option B — Playfair Display</h2>
+  <p class="subtitle">Elegant, serif, elevated feel</p>
+  <div class="grid">
+    <div class="chip font-b"><i class="fa-solid fa-rocket"></i><span class="label">Launch a business</span></div>
+    <div class="chip font-b"><i class="fa-solid fa-arrows-rotate"></i><span class="label">Change careers</span></div>
+    <div class="chip font-b"><i class="fa-solid fa-briefcase"></i><span class="label">Land better opportunities</span></div>
+  </div>
+  <div class="center-2">
+    <div class="chip font-b" style="max-width:214px;"><i class="fa-solid fa-chart-line"></i><span class="label">Increase income &amp; impact</span></div>
+    <div class="chip font-b" style="max-width:214px;"><i class="fa-solid fa-star"></i><span class="label">Create purpose-driven work</span></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- OPTION C -->
+  <h2>Option C — Raleway</h2>
+  <p class="subtitle">Wide, airy, professional</p>
+  <div class="grid">
+    <div class="chip font-c"><i class="fa-solid fa-rocket"></i><span class="label">Launch a business</span></div>
+    <div class="chip font-c"><i class="fa-solid fa-arrows-rotate"></i><span class="label">Change careers</span></div>
+    <div class="chip font-c"><i class="fa-solid fa-briefcase"></i><span class="label">Land better opportunities</span></div>
+  </div>
+  <div class="center-2">
+    <div class="chip font-c" style="max-width:214px;"><i class="fa-solid fa-chart-line"></i><span class="label">Increase income &amp; impact</span></div>
+    <div class="chip font-c" style="max-width:214px;"><i class="fa-solid fa-star"></i><span class="label">Create purpose-driven work</span></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- OPTION D -->
+  <h2>Option D — Montserrat</h2>
+  <p class="subtitle">Bold, punchy, strong presence</p>
+  <div class="grid">
+    <div class="chip font-d"><i class="fa-solid fa-rocket"></i><span class="label">Launch a business</span></div>
+    <div class="chip font-d"><i class="fa-solid fa-arrows-rotate"></i><span class="label">Change careers</span></div>
+    <div class="chip font-d"><i class="fa-solid fa-briefcase"></i><span class="label">Land better opportunities</span></div>
+  </div>
+  <div class="center-2">
+    <div class="chip font-d" style="max-width:214px;"><i class="fa-solid fa-chart-line"></i><span class="label">Increase income &amp; impact</span></div>
+    <div class="chip font-d" style="max-width:214px;"><i class="fa-solid fa-star"></i><span class="label">Create purpose-driven work</span></div>
+  </div>
+
+  <hr class="divider"/>
+  <p style="text-align:center; color:#7b5499; font-size:14px; font-family:'Inter',sans-serif;">Pick a font — A, B, C, or D — and I'll lock it in!</p>
+
+</body>
+</html>

@@ -26,6 +26,7 @@ export const NAV_LINKS = [
       { label: "Courses", href: "/courses" },
       { label: "Memberships", href: "/memberships" },
       { label: "Workshops", href: "/workshops" },
+      { label: "From Triggered To Calm™", href: "/triggered" },
       { label: "Gifts", href: "/gifts" },
     ],
   },

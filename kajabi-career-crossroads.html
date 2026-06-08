@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Crossroads™ — Get Clear On Your Next Career Move</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fdf9f4;
+      color: #2d1b3d;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* ── Color tokens ── */
+    :root {
+      --cream:    #fdf9f4;
+      --cream-100:#f7f0e6;
+      --cream-200:#ede0cc;
+      --plum:     #2d1b3d;
+      --plum-600: #4a2d65;
+      --plum-400: #7b5499;
+      --rose:     #c9627a;
+      --rose-light:#f3d6dd;
+      --gold:     #c9a227;
+      --gold-light:#f5e9c5;
+      --white:    #ffffff;
+    }
+
+    /* ── Utility ── */
+    .container {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .container--wide {
+      max-width: 980px;
+    }
+    .text-center { text-align: center; }
+    .serif { font-family: 'Playfair Display', serif; }
+
+    /* ── SECTION: Hero ── */
+    .hero {
+      background: linear-gradient(160deg, #2d1b3d 0%, #4a2d65 60%, #7b5499 100%);
+      padding: 80px 24px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,162,39,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero__eyebrow {
+      display: inline-block;
+      background: var(--gold-light);
+      color: #7a5c00;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero__headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero__headline em {
+      font-style: italic;
+      color: #f5d97a;
+    }
+    .hero__guarantee {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-style: italic;
+      color: #f5d97a;
+      margin-bottom: 32px;
+    }
+    .hero__subhead {
+      font-size: clamp(17px, 2.2vw, 21px);
+      font-weight: 600;
+      color: #e8d5f5;
+      margin-bottom: 20px;
+    }
+    .hero__body {
+      color: #d4bfe8;
+      font-size: 17px;
+      max-width: 620px;
+      margin: 0 auto 16px;
+    }
+    .hero__divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 32px auto;
+    }
+
+    /* ── SECTION: Form wrapper ── */
+    .form-section {
+      background: var(--cream-100);
+      padding: 64px 24px;
+      border-top: 4px solid var(--gold);
+    }
+    .form-section__label {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--plum-400);
+      margin-bottom: 8px;
+    }
+    .form-section__heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: 700;
+      color: var(--plum);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .form-section__sub {
+      text-align: center;
+      color: var(--plum-400);
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    /* Kajabi form embed goes here — placeholder styling */
+    .form-placeholder {
+      background: white;
+      border: 2px dashed var(--cream-200);
+      border-radius: 12px;
+      padding: 48px 32px;
+      text-align: center;
+      color: #aaa;
+      font-style: italic;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTION: Problem / Body copy ── */
+    .prose-section {
+      padding: 72px 24px;
+      background: var(--white);
+    }
+    .prose-section + .prose-section {
+      padding-top: 0;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      color: var(--plum);
+      line-height: 1.25;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .prose-body {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #3d2552;
+      font-size: 17px;
+    }
+    .prose-body p {
+      margin-bottom: 18px;
+    }
+    .prose-body p:last-child {
+      margin-bottom: 0;
+    }
+    .prose-body strong {
+      color: var(--plum);
+      font-weight: 600;
+    }
+
+    /* ── SECTION: Checklist ── */
+    .checklist-section {
+      padding: 72px 24px;
+      background: linear-gradient(180deg, #fdf9f4 0%, #f7f0e6 100%);
+    }
+    .checklist {
+      list-style: none;
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: white;
+      border-radius: 12px;
+      padding: 18px 22px;
+      box-shadow: 0 2px 12px rgba(45,27,61,0.07);
+      font-size: 16px;
+      color: #3d2552;
+      line-height: 1.55;
+    }
+    .checklist li .check {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      background: #e8f5e9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      margin-top: 1px;
+    }
+
+    /* ── SECTION: Why Stuck ── */
+    .stuck-section {
+      padding: 72px 24px;
+      background: var(--plum);
+      text-align: center;
+    }
+    .stuck-section .section-heading {
+      color: white;
+    }
+    .stuck-section .section-label {
+      color: var(--gold);
+    }
+    .stuck-body {
+      color: #c8aee0;
+      font-size: 17px;
+      max-width: 620px;
+      margin: 0 auto 20px;
+    }
+    .stuck-body p { margin-bottom: 16px; }
+    .stuck-body strong { color: #e8d5f5; }
+    .doubt-list {
+      list-style: none;
+      max-width: 520px;
+      margin: 28px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .doubt-list li {
+      background: rgba(255,255,255,0.07);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 20px;
+      color: #ddc9ef;
+      font-style: italic;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    /* ── SECTION: Difference ── */
+    .difference-section {
+      padding: 72px 24px;
+      background: var(--cream);
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      max-width: 700px;
+      margin: 32px auto 0;
+    }
+    .result-chip {
+      background: white;
+      border: 2px solid var(--cream-200);
+      border-radius: 10px;
+      padding: 18px 16px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--plum);
+      box-shadow: 0 2px 8px rgba(45,27,61,0.06);
+    }
+    .result-chip .icon {
+      font-size: 22px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* ── SECTION: Imagine ── */
+    .imagine-section {
+      padding: 72px 24px;
+      background: linear-gradient(135deg, #4a2d65 0%, #2d1b3d 100%);
+      text-align: center;
+    }
+    .imagine-section .section-heading { color: white; }
+    .imagine-section .section-label { color: var(--gold); }
+    .imagine-body {
+      color: #c8aee0;
+      font-size: 17px;
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+    .imagine-body p { margin-bottom: 14px; }
+    .outcome-list {
+      list-style: none;
+      max-width: 560px;
+      margin: 0 auto 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .outcome-list li {
+      background: rgba(201,162,39,0.12);
+      border: 1px solid rgba(201,162,39,0.3);
+      border-radius: 8px;
+      padding: 14px 20px;
+      color: #f0e0c0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .outcome-list li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION: VSL ── */
+    .vsl-section {
+      padding: 72px 24px;
+      background: var(--cream-100);
+      text-align: center;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      max-width: 720px;
+      margin: 32px auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(45,27,61,0.2);
+    }
+    .video-wrapper iframe,
+    .video-wrapper video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    /* placeholder when no video yet */
+    .video-placeholder {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #2d1b3d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #c8aee0;
+      font-style: italic;
+      gap: 12px;
+    }
+    .video-placeholder .play-icon {
+      width: 64px; height: 64px;
+      border: 3px solid #c9a227;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      color: #c9a227;
+    }
+
+    /* ── SECTION: Session Details ── */
+    .session-section {
+      padding: 72px 24px;
+      background: var(--white);
+    }
+    .session-card {
+      max-width: 680px;
+      margin: 32px auto 0;
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 40px 40px 36px;
+      box-shadow: 0 4px 24px rgba(45,27,61,0.09);
+    }
+    .session-card__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .session-card__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 16px;
+      color: #3d2552;
+    }
+    .session-card__list li::before {
+      content: '✓';
+      color: var(--plum-400);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── CTA Button ── */
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #c9a227 0%, #e8c040 100%);
+      color: #2d1b3d;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      padding: 18px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(201,162,39,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201,162,39,0.5);
+    }
+    .cta-arrow {
+      display: block;
+      font-size: 26px;
+      margin: 20px auto 8px;
+      text-align: center;
+      animation: bounce 1.6s infinite;
+      color: var(--gold);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ── SECTION: Final CTA ── */
+    .final-cta {
+      padding: 80px 24px;
+      background: linear-gradient(160deg, #2d1b3d 0%, #4a2d65 100%);
+      text-align: center;
+    }
+    .final-cta__headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 700;
+      color: white;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .final-cta__guarantee {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-style: italic;
+      color: #f5d97a;
+      margin-bottom: 32px;
+    }
+
+    /* ── SECTION: Testimonials ── */
+    .testimonials-section {
+      padding: 72px 24px;
+      background: var(--cream);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 40px auto 0;
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 14px;
+      padding: 28px 26px;
+      box-shadow: 0 2px 16px rgba(45,27,61,0.07);
+      position: relative;
+    }
+    .testimonial-card__quote {
+      font-size: 36px;
+      color: var(--plum-400);
+      line-height: 1;
+      margin-bottom: 12px;
+      font-family: Georgia, serif;
+    }
+    .testimonial-card__body {
+      font-size: 15px;
+      color: #4a3060;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-card__author {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--plum);
+    }
+    .testimonial-card__role {
+      font-size: 13px;
+      color: var(--plum-400);
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 14px;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .session-card { padding: 28px 22px; }
+      .results-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero__eyebrow">Career Crossroads™ Process</span>
+
+      <h1 class="hero__headline">
+        Get Clear On Your Next Career Move—<em>And Build A Plan To Make It Happen</em>
+      </h1>
+      <p class="hero__guarantee">In 60 Days Or You Don't Pay</p>
+
+      <div class="hero__divider"></div>
+
+      <p class="hero__subhead">
+        Not Sure If You Need A New Job, A New Career,<br/>Or Simply A Better Work Situation?
+      </p>
+
+      <p class="hero__body">
+        If you've been feeling dissatisfied, stressed, unfulfilled, or stuck in your current work—but aren't sure what to do next—you are not alone.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FORM
+       Replace the placeholder div below with your
+       Kajabi form embed code.
+  ═══════════════════════════════════════════ -->
+  <section class="form-section" id="apply">
+    <div class="container">
+      <p class="form-section__label">Free Discovery Session — $280 Value</p>
+      <h2 class="form-section__heading">⬇️ Schedule Your Complimentary Discovery Session Below</h2>
+      <p class="form-section__sub">Takes less than 2 minutes. No obligation.</p>
+
+      <!-- PASTE YOUR KAJABI FORM EMBED HERE -->
+      <div class="form-placeholder">
+        [ Kajabi opt-in form embed goes here ]
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       PROBLEM / BODY COPY
+  ═══════════════════════════════════════════ -->
+  <section class="prose-section">
+    <div class="container">
+      <div class="prose-body">
+        <p>Maybe you've looked at job postings.</p>
+        <p>Maybe you've thought about starting a business.</p>
+        <p>Maybe you've wondered whether a different boss, team, culture, or more flexibility would make all the difference.</p>
+        <p><strong>The problem isn't a lack of options.</strong></p>
+        <p><strong>The problem is knowing which option is right for you.</strong></p>
+        <p>That's where the <strong>Career Crossroads™ Process</strong> comes in.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       IS THIS FOR YOU — CHECKLIST
+  ═══════════════════════════════════════════ -->
+  <section class="checklist-section">
+    <div class="container">
+      <p class="section-label">Is This For You?</p>
+      <h2 class="section-heading">The Career Crossroads™ Process Is For You If…</h2>
+
+      <ul class="checklist">
+        <li>
+          <span class="check">✅</span>
+          You've been thinking about a career change for months—or even years—but don't want to start over from scratch.
+        </li>
+        <li>
+          <span class="check">✅</span>
+          You keep pushing through the feeling that you've outgrown your current job, title, or career path.
+        </li>
+        <li>
+          <span class="check">✅</span>
+          You've considered starting a business, but the endless options, risks, and decisions have kept you stuck.
+        </li>
+        <li>
+          <span class="check">✅</span>
+          Deep down, you know you're meant to be doing something different—even if you can't quite see what that is yet.
+        </li>
+        <li>
+          <span class="check">✅</span>
+          You want a proven roadmap, not a blind leap, when it comes to making a major career transition.
+        </li>
+        <li>
+          <span class="check">✅</span>
+          You've browsed job postings and occasionally applied, but nothing has felt exciting enough to make a move.
+        </li>
+        <li>
+          <span class="check">✅</span>
+          You're looking for work that feels meaningful, energizing, and aligned with who you are <em>today</em>—not who you were 10 years ago.
+        </li>
+        <li>
+          <span class="check">✅</span>
+          You want clarity, confidence, and a realistic plan before making your next career move.
+        </li>
+        <li>
+          <span class="check">✅</span>
+          You're curious about what could happen if you dedicated just 60 days to creating a future you're genuinely excited about.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       WHY MOST PEOPLE STAY STUCK
+  ═══════════════════════════════════════════ -->
+  <section class="stuck-section">
+    <div class="container">
+      <p class="section-label">The Real Problem</p>
+      <h2 class="section-heading">Why Most People Stay Stuck</h2>
+
+      <div class="stuck-body">
+        <p>Most people don't stay in an unfulfilling career because they lack ambition.</p>
+        <p><strong>They stay stuck because they're afraid of making the wrong move.</strong></p>
+      </div>
+
+      <ul class="doubt-list">
+        <li>What if the next job isn't any better?</li>
+        <li>What if starting a business isn't the answer?</li>
+        <li>What if you leave and regret it?</li>
+      </ul>
+
+      <div class="stuck-body">
+        <p>So they keep thinking about making a change…</p>
+        <p><strong>Without ever feeling confident enough to take action.</strong></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       THE DIFFERENCE
+  ═══════════════════════════════════════════ -->
+  <section class="difference-section">
+    <div class="container">
+      <p class="section-label">The Solution</p>
+      <h2 class="section-heading">The Career Crossroads™ Difference</h2>
+
+      <div class="prose-body text-center" style="text-align:center; margin-bottom:0;">
+        <p>Unlike typical career assessments and coaching programs, Career Crossroads™ gives you a proven step-by-step process that has helped thousands of professionals for decades.</p>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-chip"><span class="icon">🚀</span>Launch a business</div>
+        <div class="result-chip"><span class="icon">🔄</span>Change careers</div>
+        <div class="result-chip"><span class="icon">🏆</span>Land better opportunities</div>
+        <div class="result-chip"><span class="icon">💰</span>Increase income &amp; impact</div>
+        <div class="result-chip"><span class="icon">🎯</span>Create purpose-driven work</div>
+      </div>
+
+      <div class="prose-body" style="margin-top: 32px; text-align: center;">
+        <p>Most importantly, you'll walk away with more than insight.</p>
+        <p><strong>You'll gain clarity on your best next move and a personalized roadmap for making it happen.</strong></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       IMAGINE 60 DAYS FROM NOW
+  ═══════════════════════════════════════════ -->
+  <section class="imagine-section">
+    <div class="container">
+      <p class="section-label">Your Future Self</p>
+      <h2 class="section-heading">Imagine 60 Days From Now…</h2>
+
+      <div class="imagine-body">
+        <p>Instead of wondering what you should do next…</p>
+        <p><strong style="color:white;">You'll know.</strong></p>
+      </div>
+
+      <ul class="outcome-list">
+        <li>You'll have a clear understanding of your options.</li>
+        <li>You'll know which path best fits your strengths, goals, values, and lifestyle.</li>
+        <li>You'll have a practical action plan for moving forward with confidence.</li>
+      </ul>
+
+      <div class="imagine-body">
+        <p>No more second-guessing.</p>
+        <p>No more endless researching.</p>
+        <p>No more feeling stuck.</p>
+        <p><strong style="color:white;">Just clarity, direction, and momentum.</strong></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       VSL VIDEO
+       Replace the video-placeholder div with your
+       actual video embed (YouTube, Vimeo, Wistia, etc.)
+  ═══════════════════════════════════════════ -->
+  <section class="vsl-section">
+    <div class="container container--wide">
+      <p class="section-label">Watch This First</p>
+      <h2 class="section-heading">Hear How The Career Crossroads™ Process Works</h2>
+
+      <div class="video-wrapper">
+        <!-- EXAMPLE YouTube embed — replace src with your video URL:
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0" allowfullscreen></iframe>
+        -->
+        <div class="video-placeholder">
+          <div class="play-icon">▶</div>
+          <span>[ Paste your video embed here ]</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DISCOVERY SESSION DETAILS
+  ═══════════════════════════════════════════ -->
+  <section class="session-section">
+    <div class="container">
+      <p class="section-label">Your Next Step</p>
+      <h2 class="section-heading">Your Next Career Move Starts Here</h2>
+
+      <div class="prose-body text-center" style="text-align:center; margin-bottom:0;">
+        <p>Book your <strong>complimentary Career Discovery Session (a $280 value)</strong> with a certified professional.</p>
+      </div>
+
+      <div class="session-card">
+        <p style="font-family:'Playfair Display',serif; font-size:20px; font-weight:600; color:var(--plum); margin-bottom:20px;">During your session, you'll discover:</p>
+        <ul class="session-card__list">
+          <li>What's really causing your dissatisfaction at work</li>
+          <li>Whether you need a new job, a new career, or a new approach</li>
+          <li>The opportunities that may be available to you right now</li>
+          <li>How the Career Crossroads™ Process can help you create a clear path forward</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════════ -->
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="final-cta__headline">
+        Get Clear On Your Next Career Move—<br/>And Build A Plan To Make It Happen.
+      </h2>
+      <p class="final-cta__guarantee">In 60 Days Or You Don't Pay.</p>
+
+      <span class="cta-arrow">⬇️</span>
+
+      <a href="#apply" class="btn-primary">
+        Schedule Your Complimentary Discovery Session
+      </a>
+
+      <p style="color:#a08abd; font-size:14px; margin-top:20px;">Complimentary session — a $280 value. No obligation.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIALS
+       Add/remove cards as needed
+  ═══════════════════════════════════════════ -->
+  <section class="testimonials-section">
+    <div class="container container--wide">
+      <p class="section-label">Real Results</p>
+      <h2 class="section-heading">What Our Clients Say</h2>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-card__quote">"</div>
+          <p class="testimonial-card__body">
+            [Add your testimonial text here. Replace this placeholder with a real client quote that speaks to clarity, confidence, or results.]
+          </p>
+          <p class="testimonial-card__author">Client Name</p>
+          <p class="testimonial-card__role">Title / Industry</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-card__quote">"</div>
+          <p class="testimonial-card__body">
+            [Add your second testimonial here. Focus on transformation — from stuck and uncertain to clear and moving forward.]
+          </p>
+          <p class="testimonial-card__author">Client Name</p>
+          <p class="testimonial-card__role">Title / Industry</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-card__quote">"</div>
+          <p class="testimonial-card__body">
+            [Third testimonial. Consider one that specifically mentions the 60-day guarantee or the discovery session experience.]
+          </p>
+          <p class="testimonial-card__author">Client Name</p>
+          <p class="testimonial-card__role">Title / Industry</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
