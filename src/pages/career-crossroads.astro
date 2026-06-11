@@ -7,8 +7,11 @@ export const prerender = true;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Career Crossroads™ — Get Clear On Your Next Career Move</title>
-  <meta name="description" content="Get clear on your next career move and build a plan to make it happen in 60 days or you don't pay." />
+  <title>Get Clear On Your Next Career Move | Career Crossroads™</title>
+  <meta name="description" content="For high performing professional women. Get clear on your next career move and build a plan to make it happen. In 60 days or you don't pay." />
+  <meta property="og:title" content="Get Clear On Your Next Career Move | Career Crossroads™" />
+  <meta property="og:description" content="For high performing professional women. Get clear on your next career move and build a plan to make it happen. In 60 days or you don't pay." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -161,12 +164,16 @@ export const prerender = true;
       flex-shrink: 0;
     }
     .marquee-set img:hover { opacity: 1; filter: none; }
+    .marquee-set img.logo-sm { height: 20px; }
+    .marquee-set img.logo-lg { height: 60px; }
     @keyframes marquee-scroll {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
     @media (max-width: 600px) {
       .marquee-set img { height: 36px; }
+      .marquee-set img.logo-sm { height: 15px; }
+      .marquee-set img.logo-lg { height: 45px; }
       .marquee-set { gap: 32px; padding-right: 32px; }
     }
 
@@ -212,7 +219,7 @@ export const prerender = true;
     .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(45,27,61,0.12); }
     .video-wrap iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
     @media (max-width: 640px) { .video-grid { grid-template-columns: 1fr; } }
-    .fb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 960px; margin: 0 auto; }
+    .fb-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 860px; margin: 0 auto; }
     .fb-grid img { width: 100%; display: block; border-radius: 8px; box-shadow: 0 2px 12px rgba(45,27,61,0.1); }
     .proof-divider { max-width: 960px; margin: 0 auto 56px; border: none; border-top: 1px solid var(--cream-200); }
     @media (max-width: 640px) { .fb-grid { grid-template-columns: 1fr; } }
@@ -239,8 +246,8 @@ export const prerender = true;
     .session-card { max-width: 640px; margin: 28px auto 0; background: var(--cream); border-radius: 14px; padding: 36px 40px; box-shadow: 0 4px 20px rgba(45,27,61,0.08); }
     .session-card__title { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: var(--plum); margin-bottom: 16px; }
     .session-card__list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-    .session-card__list li { display: flex; align-items: flex-start; gap: 10px; font-size: 16px; color: #3d2552; }
-    .session-card__list li::before { content: '✓'; color: var(--plum-400); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .session-card__list li { display: flex; align-items: flex-start; gap: 10px; font-size: 16px; font-weight: 700; color: #3d2552; background: #fff; border: 1.5px solid var(--plum-400); border-radius: 10px; padding: 14px 16px; box-shadow: 0 2px 8px rgba(45,27,61,0.05); }
+    .session-card__list li::before { content: '✓'; color: #a8803a; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
     @media (max-width: 500px) { .session-card { padding: 24px 20px; } }
 
     /* ── FINAL CTA ── */
@@ -388,19 +395,23 @@ export const prerender = true;
         <div class="marquee-track">
           <div class="marquee-set">
             <span class="prime-badge">▶ Now on Prime Video</span>
-            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/effc3e2-d5f4-284f-6501-5835e0ff035_5a486bcc-1733-4a26-93ad-87a35c6b6691.png" alt="Recognition" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/effc3e2-d5f4-284f-6501-5835e0ff035_5a486bcc-1733-4a26-93ad-87a35c6b6691.png" alt="Recognition" class="logo-lg" />
             <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/8b38b4f-540b-5abc-bbbf-f1aa5527eceb_b3f3c077-2980-4311-bada-7468a0aef654.png" alt="Recognition" />
             <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/b5c703a-6674-aa63-e8b-e5b7b1a6f25_d74d2c3a-b57c-4df2-9893-ed12c87c63a7.png" alt="Recognition" />
             <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/c1431-557-802e-3bf4-7206efe01ab_cb1fc594-a909-458b-a1d9-f674013f89cc.JPG" alt="Recognition" />
             <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2162162086/settings_images/c6e60b-c84e-f2d4-6cae-bcbc76b84436_Screenshot_2025-08-05_172352.png" alt="Recognition" />
+            <img src="/images/bliss-up-logo.jpg" alt="Bliss Up" />
+            <img src="/images/seacoastonline-logo.jpg" alt="Seacoastonline" class="logo-sm" />
           </div>
           <div class="marquee-set">
             <span class="prime-badge">▶ Now on Prime Video</span>
-            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/effc3e2-d5f4-284f-6501-5835e0ff035_5a486bcc-1733-4a26-93ad-87a35c6b6691.png" alt="Recognition" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/effc3e2-d5f4-284f-6501-5835e0ff035_5a486bcc-1733-4a26-93ad-87a35c6b6691.png" alt="Recognition" class="logo-lg" />
             <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/8b38b4f-540b-5abc-bbbf-f1aa5527eceb_b3f3c077-2980-4311-bada-7468a0aef654.png" alt="Recognition" />
             <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/b5c703a-6674-aa63-e8b-e5b7b1a6f25_d74d2c3a-b57c-4df2-9893-ed12c87c63a7.png" alt="Recognition" />
             <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/c1431-557-802e-3bf4-7206efe01ab_cb1fc594-a909-458b-a1d9-f674013f89cc.JPG" alt="Recognition" />
             <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2162162086/settings_images/c6e60b-c84e-f2d4-6cae-bcbc76b84436_Screenshot_2025-08-05_172352.png" alt="Recognition" />
+            <img src="/images/bliss-up-logo.jpg" alt="Bliss Up" />
+            <img src="/images/seacoastonline-logo.jpg" alt="Seacoastonline" class="logo-sm" />
           </div>
         </div>
       </div>
@@ -449,7 +460,7 @@ export const prerender = true;
         <li><span class="check-icon">✓</span>You've considered starting a business, but the options, risks, and decisions have kept you stuck.</li>
         <li><span class="check-icon">✓</span>Deep down, you know you're meant to be doing something different, even if you can't see it yet.</li>
         <li><span class="check-icon">✓</span>You want a proven roadmap, not a blind leap, when making a major career transition.</li>
-        <li><span class="check-icon">✓</span>You're looking for work that feels meaningful and aligned with who you are <em>today</em>.</li>
+        <li><span class="check-icon">✓</span><span>You're looking for work that feels meaningful and aligned with who you are <em>today</em>.</span></li>
         <li><span class="check-icon">✓</span>You want clarity, confidence, and a realistic plan before making your next move.</li>
       </ul>
       <div style="text-align:center; margin-top:36px;">
@@ -491,9 +502,9 @@ export const prerender = true;
         <p class="session-card__title">During your session, you'll discover:</p>
         <ul class="session-card__list">
           <li>What's really causing your dissatisfaction at work</li>
-          <li>Whether you need a new job, a new career, or a new approach</li>
-          <li>The opportunities available to you right now</li>
-          <li>How the Career Crossroads™ Process creates a clear path forward</li>
+          <li>Whether you need a new job, a new career direction, or a different strategy altogether</li>
+          <li>The most aligned opportunities available to you right now</li>
+          <li>How the Career Crossroads™ Process helps professionals make confident career decisions and move forward with purpose</li>
         </ul>
       </div>
     </div>
