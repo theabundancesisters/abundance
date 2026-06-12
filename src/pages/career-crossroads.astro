@@ -591,6 +591,15 @@ export const prerender = true;
             <label for="helpWith">What do you need help with? *</label>
             <textarea id="helpWith" name="helpWith" placeholder="Describe what's going on and what you're hoping to change…" required></textarea>
           </div>
+          <div class="field">
+            <label for="incomeRange">What is your general household income range? *</label>
+            <select id="incomeRange" name="incomeRange" required>
+              <option value="">Select a range…</option>
+              <option value="under_50k">Under $50k</option>
+              <option value="over_50k">Over $50k</option>
+              <option value="not_applicable">Not applicable</option>
+            </select>
+          </div>
           <div id="error-2" class="error-msg">Please fill out all fields.</div>
           <button type="submit" class="btn-submit" id="submit-btn">Book My Free Session →</button>
           <button type="button" class="btn-back" id="back-btn">← Back</button>
@@ -668,8 +677,9 @@ export const prerender = true;
       const occupation  = form.occupation.value.trim();
       const frustration = form.frustration.value;
       const helpWith    = form.helpWith.value.trim();
+      const incomeRange = form.incomeRange.value;
 
-      if (!occupation || !frustration || !helpWith) {
+      if (!occupation || !frustration || !helpWith || !incomeRange) {
         errEl.style.display = 'block'; return;
       }
       errEl.style.display = 'none';
@@ -681,7 +691,7 @@ export const prerender = true;
         lastName:    form.lastName.value.trim(),
         email:       form.email.value.trim(),
         phone:       form.phone.value.trim(),
-        occupation, frustration, helpWith,
+        occupation, frustration, helpWith, incomeRange,
       };
 
       try {
@@ -696,7 +706,7 @@ export const prerender = true;
           + '?' + params.toString();
       } catch {
         const params = new URLSearchParams(payload);
-        window.location.href = (parseInt(frustration, 10) >= 7 ? '/booking-qualified' : '/booking-not-qualified')
+        window.location.href = (incomeRange === 'over_50k' ? '/booking-qualified' : '/booking-not-qualified')
           + '?' + params.toString();
       }
     });

@@ -7,7 +7,7 @@ const KAJABI_FORM_URL = "https://www.theleadingedge.life/forms/2148718151";
 /** Submit to Kajabi "Opt-in Career" form */
 async function submitToKajabi(fields: {
   firstName: string; lastName: string; email: string; phone: string;
-  occupation: string; frustration: string; helpWith: string;
+  occupation: string; frustration: string; helpWith: string; incomeRange: string;
 }): Promise<void> {
   // Try without CSRF token first (works for server-side embed requests)
   const body = new URLSearchParams({
@@ -71,7 +71,7 @@ async function submitToGHL(
   qualified: boolean,
   fields: {
     firstName: string; lastName: string; email: string; phone: string;
-    occupation: string; frustration: string; helpWith: string;
+    occupation: string; frustration: string; helpWith: string; incomeRange: string;
   }
 ): Promise<void> {
   const contactPayload: Record<string, unknown> = {
@@ -123,7 +123,8 @@ async function submitToGHL(
         `Occupation: ${fields.occupation}`,
         `Frustration Score: ${fields.frustration}/10`,
         `Help needed: ${fields.helpWith}`,
-        `Qualified: ${qualified ? "Yes (score 7+)" : "No (score <7)"}`,
+        `Household Income Range: ${fields.incomeRange}`,
+        `Qualified: ${qualified ? "Yes (income over $50k)" : "No (income under $50k or not applicable)"}`,
       ].join("\n"),
       userId: contactId,
     }),
@@ -140,17 +141,16 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: "Invalid request body" }), { status: 400, headers });
   }
 
-  const { firstName, lastName, email, phone, occupation, frustration, helpWith } = body;
+  const { firstName, lastName, email, phone, occupation, frustration, helpWith, incomeRange } = body;
 
-  if (!firstName || !lastName || !email || !phone || !occupation || !frustration || !helpWith) {
+  if (!firstName || !lastName || !email || !phone || !occupation || !frustration || !helpWith || !incomeRange) {
     return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400, headers });
   }
 
   const apiKey     = import.meta.env.GHL_API_KEY;
   const locationId = import.meta.env.GHL_LOCATION_ID; // optional — helps but PIT may not need it
-  const score      = parseInt(frustration, 10);
-  const qualified  = score >= 7;
-  const fields     = { firstName, lastName, email, phone, occupation, frustration, helpWith };
+  const qualified  = incomeRange === "over_50k";
+  const fields     = { firstName, lastName, email, phone, occupation, frustration, helpWith, incomeRange };
 
   const [ghlResult, kajabiResult] = await Promise.allSettled([
     submitToGHL(apiKey, locationId, qualified, fields),
