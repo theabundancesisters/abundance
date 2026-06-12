@@ -122,6 +122,34 @@ export const prerender = true;
       .session-card { padding: 24px 20px; }
     }
 
+    .continue-section {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      text-align: center;
+    }
+    .continue-section p {
+      color: var(--plum-400);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+    .btn-continue {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(201,162,39,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-continue:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,162,39,0.45);
+    }
+
 .calendar-wrap {
       max-width: 900px;
       margin: 28px auto 0;
@@ -169,6 +197,11 @@ export const prerender = true;
     </ul>
   </div>
 
+  <div class="continue-section">
+    <p>Already picked a time above?</p>
+    <a class="btn-continue" id="continue-link" href="/fast-track-career">Continue →</a>
+  </div>
+
   <footer style="text-align:center; padding: 28px 24px; font-size:12px; color:#888; border-top:1px solid #ede0cc;">
     <a href="https://www.theleadingedge.life/pages/terms" target="_blank" style="color:#888; text-decoration:none; margin:0 12px;">Terms of Service</a>
     <a href="https://www.theleadingedge.life/pages/privacy-policy" target="_blank" style="color:#888; text-decoration:none; margin:0 12px;">Privacy Policy</a>
@@ -183,6 +216,9 @@ export const prerender = true;
       if (v) url.searchParams.set(k === 'firstName' ? 'first_name' : k === 'lastName' ? 'last_name' : k, v);
     });
     iframe.src = url.toString();
+
+    const continueLink = document.getElementById('continue-link');
+    if (p.toString()) continueLink.href = '/fast-track-career?' + p.toString();
   </script>
 
 </body>

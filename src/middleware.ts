@@ -3,7 +3,8 @@ import { defineMiddleware } from "astro:middleware";
 const ALLOWED = [
   "/career-crossroads",
   "/booking-qualified",
-  "/booking-not-qualified",
+  "/booking-nq",
+  "/fast-track-career",
   "/api/submit-application",
 ];
 

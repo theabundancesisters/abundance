@@ -702,11 +702,11 @@ export const prerender = true;
         });
         const data = await res.json();
         const params = new URLSearchParams(payload);
-        window.location.href = (data.qualified ? '/booking-qualified' : '/booking-not-qualified')
+        window.location.href = (data.qualified ? '/booking-qualified' : '/booking-nq')
           + '?' + params.toString();
       } catch {
         const params = new URLSearchParams(payload);
-        window.location.href = (incomeRange === 'over_50k' ? '/booking-qualified' : '/booking-not-qualified')
+        window.location.href = (incomeRange === 'over_50k' ? '/booking-qualified' : '/booking-nq')
           + '?' + params.toString();
       }
     });
