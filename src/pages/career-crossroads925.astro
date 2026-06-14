@@ -1,0 +1,747 @@
+---
+export const prerender = true;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leave Your 9-to-5 and Launch Purpose-Driven Work | Career Crossroads™</title>
+  <meta name="description" content="For high performing professional women. Leave your 9-to-5 and launch purpose-driven work in 60 days or you don't pay." />
+  <meta property="og:title" content="Leave Your 9-to-5 and Launch Purpose-Driven Work | Career Crossroads™" />
+  <meta property="og:description" content="For high performing professional women. Leave your 9-to-5 and launch purpose-driven work in 60 days or you don't pay." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream:     #fdf9f4;
+      --cream-100: #f7f0e6;
+      --cream-200: #ede0cc;
+      --plum:      #2d1b3d;
+      --plum-600:  #4a2d65;
+      --plum-400:  #7b5499;
+      --rose:      #c9627a;
+      --gold:      #c9a227;
+      --gold-light:#f5e9c5;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--plum);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    .container      { width: 100%; max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .container--wide { max-width: 1080px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #2d1b3d 0%, #4a2d65 60%, #7b5499 100%);
+      padding: 72px 0 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,162,39,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero__eyebrow {
+      display: block;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero__headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5.5vw, 56px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin: 0 auto 16px;
+      max-width: 720px;
+    }
+    .hero__headline em { font-style: italic; color: #f5d97a; }
+    .hero__guarantee {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-style: italic;
+      color: #f5d97a;
+      margin-bottom: 12px;
+    }
+    .hero__sub {
+      color: #d4bfe8;
+      font-size: clamp(16px, 2vw, 18px);
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+    .hero__divider { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin: 0 auto 32px; }
+    .hero__vsl {
+      position: relative;
+      max-width: 820px;
+      margin: 40px auto 0;
+      padding-bottom: calc(min(820px, 100%) * 0.5625);
+      height: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 -4px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(201,162,39,0.2);
+    }
+    .hero__vsl iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+
+    /* ── CTA BUTTON ── */
+    .btn-gold {
+      display: inline-block;
+      background: linear-gradient(135deg, #c9a227 0%, #e8c040 100%);
+      color: #2d1b3d;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      padding: 18px 44px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(201,162,39,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,162,39,0.55); }
+    .cta-note { font-size: 14px; color: #a08abd; margin-top: 14px; }
+    .cta-note--dark { color: #666; }
+
+    /* ── MARQUEE LOGOS ── */
+    .marquee-outer {
+      max-width: 860px;
+      margin: 0 auto;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    }
+    .logos-strip__label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--plum-400);
+      margin-bottom: 16px;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee-scroll 28s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-set {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding-right: 48px;
+      flex-shrink: 0;
+    }
+    .marquee-set img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.75;
+      filter: grayscale(20%);
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .marquee-set img:hover { opacity: 1; filter: none; }
+    .marquee-set img.logo-sm { height: 20px; }
+    .marquee-set img.logo-lg { height: 60px; }
+    @keyframes marquee-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 600px) {
+      .marquee-set img { height: 36px; }
+      .marquee-set img.logo-sm { height: 15px; }
+      .marquee-set img.logo-lg { height: 45px; }
+      .marquee-set { gap: 32px; padding-right: 32px; }
+    }
+
+    /* ── PRIME BADGE (inside logos strip) ── */
+    .prime-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-light);
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      padding: 8px 16px;
+      color: #7a5c00;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION LABELS ── */
+    .label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      color: var(--plum);
+      line-height: 1.2;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* ── SOCIAL PROOF BLOCK (marquee + videos + FB) — all white ── */
+    .social-proof-block { background: #ffffff; padding: 64px 24px 64px; }
+    .video-grid {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      margin: 32px auto 0;
+      max-width: 960px;
+      padding: 4px 4px 16px;
+      scrollbar-color: var(--plum-400) var(--cream-200);
+    }
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(45,27,61,0.12);
+      flex: 0 0 min(82vw, 420px);
+      scroll-snap-align: center;
+    }
+    .video-wrap iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+    @media (min-width: 720px) { .video-wrap { flex: 0 0 calc(50% - 10px); } }
+    .fb-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 860px; margin: 0 auto; }
+    .fb-grid img { width: 100%; display: block; border-radius: 8px; box-shadow: 0 2px 12px rgba(45,27,61,0.1); }
+    @media (max-width: 640px) { .fb-grid { grid-template-columns: 1fr; } }
+    .proof-divider { max-width: 960px; margin: 56px auto; border: none; border-top: 1px solid var(--cream-200); }
+
+    /* ── CHECKLIST ── */
+    .checklist-section { padding: 64px 24px; background: var(--cream-100); border-top: 1px solid var(--cream-200); }
+    .checklist { list-style: none; max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; padding: 0; }
+    .checklist li { display: flex; align-items: flex-start; gap: 14px; font-size: clamp(16px, 1.8vw, 17px); color: #3d2552; line-height: 1.55; padding: 4px 0; }
+    .check-icon { flex-shrink: 0; width: 22px; height: 22px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; margin-top: 3px; color: #2e7d32; font-weight: 700; }
+
+    /* ── STUCK — dark ── */
+    .stuck-section { padding: 64px 24px; background: var(--plum); text-align: center; }
+    .stuck-section .label { color: var(--gold); }
+    .stuck-section .heading { color: white; }
+    .stuck-body { color: #c8aee0; font-size: clamp(16px, 1.8vw, 18px); max-width: 560px; margin: 0 auto 24px; }
+    .stuck-body p { margin-bottom: 14px; }
+    .stuck-body strong { color: #e8d5f5; }
+    .doubt-list { list-style: none; max-width: 480px; margin: 0 auto 24px; display: flex; flex-direction: column; gap: 10px; padding: 0; }
+    .doubt-list li { background: rgba(255,255,255,0.07); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 13px 18px; color: #ddc9ef; font-style: italic; font-size: 16px; text-align: left; }
+
+/* ── SESSION DETAILS ── */
+    .session-section { padding: 64px 24px; background: #fff; }
+    .session-card { max-width: 640px; margin: 28px auto 0; background: var(--cream); border-radius: 14px; padding: 36px 40px; box-shadow: 0 4px 20px rgba(45,27,61,0.08); }
+    .session-card__title { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: var(--plum); margin-bottom: 16px; }
+    .session-card__list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .session-card__list li { display: flex; align-items: flex-start; gap: 10px; font-size: 20px; font-weight: 700; color: #3d2552; background: #fff; border: 1.5px solid var(--plum-400); border-radius: 10px; padding: 14px 16px; box-shadow: 0 2px 8px rgba(45,27,61,0.05); }
+    .session-card__list li::before { content: '✓'; color: #a8803a; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    @media (max-width: 500px) { .session-card { padding: 24px 20px; } }
+
+    /* ── FINAL CTA ── */
+    .final-cta { padding: 72px 24px; background: linear-gradient(160deg, #2d1b3d 0%, #4a2d65 100%); text-align: center; }
+    .final-cta__card {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 40px 44px;
+      max-width: 540px;
+      margin: 0 auto;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.3);
+    }
+    .final-cta__eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .final-cta__headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.6vw, 38px);
+      font-weight: 700;
+      color: var(--plum);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .final-cta__guarantee {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(15px, 1.8vw, 18px);
+      font-style: italic;
+      color: var(--plum-400);
+      margin-bottom: 28px;
+    }
+    @media (max-width: 500px) { .final-cta__card { padding: 36px 24px 32px; } }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 10, 45, 0.78);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal__close { position: absolute; top: 16px; right: 18px; background: none; border: none; font-size: 22px; color: #aaa; cursor: pointer; line-height: 1; }
+    .modal__close:hover { color: var(--plum); }
+    .modal__eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); margin-bottom: 8px; }
+    .modal__title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 28px); font-weight: 700; color: var(--plum); margin-bottom: 6px; line-height: 1.25; }
+    .modal__sub { color: var(--plum-400); font-size: 15px; margin-bottom: 28px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } .modal { padding: 28px 20px; } }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-size: 14px; font-weight: 600; color: var(--plum); margin-bottom: 6px; }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: var(--plum);
+      background: var(--cream);
+      border: 1.5px solid var(--cream-200);
+      border-radius: 8px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--plum-400); background: white; }
+    .field textarea { resize: vertical; min-height: 80px; }
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #c9a227 0%, #e8c040 100%);
+      color: var(--plum);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      padding: 17px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(201,162,39,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 4px;
+    }
+    .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(201,162,39,0.5); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-back { background: none; border: none; color: var(--plum-400); font-size: 14px; font-weight: 600; cursor: pointer; padding: 8px 0 0; display: block; margin: 0 auto; }
+    .btn-back:hover { color: var(--plum); }
+    .form-note { text-align: center; font-size: 13px; color: #999; margin-top: 12px; }
+    .error-msg { color: #c0392b; font-size: 13px; margin-bottom: 12px; display: none; }
+    /* Step indicator */
+    .step-indicator { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 20px; }
+    .step-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--cream-200); transition: background 0.2s; flex-shrink: 0; }
+    .step-dot--active { background: var(--gold); }
+    .step-dot--done { background: var(--plum-400); }
+    .step-line { width: 48px; height: 2px; background: var(--cream-200); transition: background 0.2s; }
+    .step-line--done { background: var(--plum-400); }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO BAR -->
+  <div style="background:#ffffff; padding:14px 24px; text-align:center; border-bottom:1px solid #ede0cc;">
+    <img src="/images/logo-leading-edge.png" alt="The Leading Edge Life" style="height:44px; width:auto;" />
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero__eyebrow">For High Performing Professional Women</span>
+      <h1 class="hero__headline">
+        Leave Your 9-to-5, <em>and Launch Purpose-Driven Work</em>
+      </h1>
+      <p class="hero__guarantee">In 60 Days Or You Don't Pay</p>
+      <p class="hero__sub">If you've been feeling dissatisfied, stressed, or unfulfilled in your career, but haven't decided what to do next, you're not alone.</p>
+      <button class="btn-gold" id="hero-cta">Book My Free Session</button>
+      <p class="cta-note">($280 Value)</p>
+      <div class="hero__vsl">
+        <iframe src="https://www.youtube.com/embed/ZFhxGJcAVyk?rel=0&modestbranding=1" allowfullscreen title="Hear How The Career Crossroads™ Process Works"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF BLOCK: marquee + videos + FB screenshots — all white -->
+  <section class="social-proof-block">
+
+    <!-- Marquee logos -->
+    <div style="margin-bottom:56px;">
+      <p class="logos-strip__label">Featured &amp; Recognized</p>
+      <div class="marquee-outer" style="margin-top:16px;">
+        <div class="marquee-track">
+          <div class="marquee-set">
+            <span class="prime-badge">▶ Now on Prime Video</span>
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/effc3e2-d5f4-284f-6501-5835e0ff035_5a486bcc-1733-4a26-93ad-87a35c6b6691.png" alt="Recognition" class="logo-lg" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/8b38b4f-540b-5abc-bbbf-f1aa5527eceb_b3f3c077-2980-4311-bada-7468a0aef654.png" alt="Recognition" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/b5c703a-6674-aa63-e8b-e5b7b1a6f25_d74d2c3a-b57c-4df2-9893-ed12c87c63a7.png" alt="Recognition" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/c1431-557-802e-3bf4-7206efe01ab_cb1fc594-a909-458b-a1d9-f674013f89cc.JPG" alt="Recognition" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2162162086/settings_images/c6e60b-c84e-f2d4-6cae-bcbc76b84436_Screenshot_2025-08-05_172352.png" alt="Recognition" />
+            <img src="/images/bliss-up-logo.jpg" alt="Bliss Up" />
+            <img src="/images/seacoastonline-logo.jpg" alt="Seacoastonline" class="logo-sm" />
+          </div>
+          <div class="marquee-set">
+            <span class="prime-badge">▶ Now on Prime Video</span>
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/effc3e2-d5f4-284f-6501-5835e0ff035_5a486bcc-1733-4a26-93ad-87a35c6b6691.png" alt="Recognition" class="logo-lg" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/8b38b4f-540b-5abc-bbbf-f1aa5527eceb_b3f3c077-2980-4311-bada-7468a0aef654.png" alt="Recognition" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/b5c703a-6674-aa63-e8b-e5b7b1a6f25_d74d2c3a-b57c-4df2-9893-ed12c87c63a7.png" alt="Recognition" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2159933886/settings_images/c1431-557-802e-3bf4-7206efe01ab_cb1fc594-a909-458b-a1d9-f674013f89cc.JPG" alt="Recognition" />
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2162162086/settings_images/c6e60b-c84e-f2d4-6cae-bcbc76b84436_Screenshot_2025-08-05_172352.png" alt="Recognition" />
+            <img src="/images/bliss-up-logo.jpg" alt="Bliss Up" />
+            <img src="/images/seacoastonline-logo.jpg" alt="Seacoastonline" class="logo-sm" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="proof-divider" />
+
+    <!-- Video testimonials -->
+    <div class="container container--wide">
+      <p class="label">Real Results</p>
+      <h2 class="heading">What Clients Are Saying</h2>
+      <div class="video-grid">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/4AtJXTj7-1w?rel=0" allowfullscreen></iframe></div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/QAigpSjuDe4?rel=0" allowfullscreen></iframe></div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/vuprmI0VYhU?rel=0" allowfullscreen></iframe></div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/ZgRayVAWqNY?rel=0" allowfullscreen></iframe></div>
+      </div>
+    </div>
+
+    <hr class="proof-divider" />
+
+    <!-- FB screenshots -->
+    <div class="container container--wide">
+      <p class="label">Client Love</p>
+      <h2 class="heading">What People Are Posting</h2>
+      <div class="fb-grid">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/4e2ded-063-5cd5-058f-bd43e078de26_Screenshot_2026-06-01_132143.png" alt="Client feedback" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/17e1a51-27b1-d815-36b-fe26717befdf_Screenshot_2026-06-01_132350.png" alt="Client feedback" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/de6e60a-acb-7ff1-6b5-354ae2c41462_Screenshot_2026-06-01_132156.png" alt="Client feedback" />
+      </div>
+    </div>
+
+  </section>
+
+  <!-- IS THIS FOR YOU -->
+  <section class="checklist-section">
+    <div class="container">
+      <p class="label">Is This For You?</p>
+      <h2 class="heading">This Process Is For You If…</h2>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span>You've been thinking about a career change for months, or even years, but don't want to start over from scratch.</li>
+        <li><span class="check-icon">✓</span>You feel like you've outgrown your current job, title, or career path.</li>
+        <li><span class="check-icon">✓</span>You've considered starting a business, but the options, risks, and decisions have kept you stuck.</li>
+        <li><span class="check-icon">✓</span>Deep down, you know you're meant to be doing something different, even if you can't see it yet.</li>
+        <li><span class="check-icon">✓</span>You want a proven roadmap, not a blind leap, when making a major career transition.</li>
+        <li><span class="check-icon">✓</span><span>You're looking for work that feels meaningful and aligned with who you are <em>today</em>.</span></li>
+        <li><span class="check-icon">✓</span>You want clarity, confidence, and a realistic plan before making your next move.</li>
+      </ul>
+      <div style="text-align:center; margin-top:36px;">
+        <button class="btn-gold" id="checklist-cta">Book My Free Session</button>
+        <p class="cta-note cta-note--dark">($280 Value)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PEOPLE STAY STUCK -->
+  <section class="stuck-section">
+    <div class="container">
+      <p class="label">The Real Problem</p>
+      <h2 class="heading">Why Most People Don't Take Action</h2>
+      <div class="stuck-body">
+        <p>Most people don't stay in an unfulfilling career because they lack ambition.</p>
+        <p><strong>They stay because they're afraid of making the wrong move.</strong></p>
+      </div>
+      <ul class="doubt-list">
+        <li>What if the next job isn't any better?</li>
+        <li>What if starting a business isn't the answer?</li>
+        <li>What if you leave and regret it?</li>
+      </ul>
+      <div class="stuck-body">
+        <p>So they keep thinking about making a change…</p>
+        <p><strong>Without ever feeling clear enough to take action.</strong></p>
+      </div>
+    </div>
+  </section>
+
+<!-- SESSION DETAILS -->
+  <section class="session-section">
+    <div class="container">
+      <p class="label">Your Next Step</p>
+      <h2 class="heading">Your Next Career Move Starts Here</h2>
+      <p style="text-align:center; color:#3d2552; font-size:clamp(16px,1.8vw,17px); max-width:580px; margin:0 auto;">
+        Book your <strong>complimentary Career Discovery Session</strong> with a certified professional.
+      </p>
+      <div class="session-card">
+        <p class="session-card__title">During your session, you'll discover:</p>
+        <ul class="session-card__list">
+          <li>What's really causing your dissatisfaction at work</li>
+          <li>Whether you need a new job, a new career direction, or a different strategy altogether</li>
+          <li>The most aligned opportunities available to you right now</li>
+          <li>How the Career Crossroads™ Process helps professionals make confident career decisions and move forward with purpose</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE CLIENT LOVE -->
+  <section class="social-proof-block">
+    <div class="container container--wide">
+      <p class="label">Client Love</p>
+      <h2 class="heading">More From Clients</h2>
+      <div class="fb-grid">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/b30860-dc04-5558-c062-b8b5c1ccfa_Screenshot_2026-06-01_132241.png" alt="Client feedback" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/62b87f4-ff13-24f1-25ee-55235d8d176_Screenshot_2026-06-01_132322.png" alt="Client feedback" />
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2166320339/settings_images/eaa676d-c344-084-1d86-8b6e447e136_Screenshot_2026-06-01_133900.png" alt="Client feedback" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="final-cta__card">
+        <p class="final-cta__eyebrow">For High Performing Professional Women</p>
+        <h2 class="final-cta__headline">Leave Your 9-to-5 and Launch Purpose-Driven Work</h2>
+        <p class="final-cta__guarantee">In 60 Days Or You Don't Pay</p>
+        <button class="btn-gold" id="final-cta">Book My Free Session</button>
+        <p class="cta-note cta-note--dark">($280 Value)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL FORM -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" id="modal-close" aria-label="Close">✕</button>
+
+      <!-- Step indicator -->
+      <div class="step-indicator">
+        <div class="step-dot step-dot--active" id="dot-1"></div>
+        <div class="step-line"></div>
+        <div class="step-dot" id="dot-2"></div>
+      </div>
+
+      <p class="modal__eyebrow" id="modal-eyebrow">Step 1 of 2</p>
+      <h2 class="modal__title" id="modal-title">Your Contact Info</h2>
+      <p class="modal__sub" id="modal-sub">Quick and easy. No obligation.</p>
+
+      <form id="discovery-form" novalidate>
+
+        <!-- STEP 1 -->
+        <div id="step-1">
+          <div class="form-row">
+            <div class="field">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" placeholder="First Name" required />
+            </div>
+            <div class="field">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+          </div>
+          <div id="error-1" class="error-msg">Please fill out all fields.</div>
+          <button type="button" class="btn-submit" id="next-btn">Continue →</button>
+          <p class="form-note">No spam. Ever.</p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step-2" style="display:none;">
+          <div class="field">
+            <label for="occupation">What is your current occupation? For how long? *</label>
+            <textarea id="occupation" name="occupation" placeholder="e.g. Marketing Manager for 8 years" required></textarea>
+          </div>
+          <div class="field">
+            <label for="frustration">On a scale of 1–10, how frustrated are you? (10 = very frustrated) *</label>
+            <select id="frustration" name="frustration" required>
+              <option value="">Select a number…</option>
+              <option value="1">1 — Mildly dissatisfied</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 — Moderately frustrated</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10 — Very frustrated</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="helpWith">What do you need help with? *</label>
+            <textarea id="helpWith" name="helpWith" placeholder="Describe what's going on and what you're hoping to change…" required></textarea>
+          </div>
+          <div class="field">
+            <label for="incomeRange">What is your general household income range? *</label>
+            <select id="incomeRange" name="incomeRange" required>
+              <option value="">Select a range…</option>
+              <option value="under_50k">Under $50k</option>
+              <option value="over_50k">Over $50k</option>
+              <option value="not_applicable">Not applicable</option>
+            </select>
+          </div>
+          <div id="error-2" class="error-msg">Please fill out all fields.</div>
+          <button type="submit" class="btn-submit" id="submit-btn">Book My Free Session →</button>
+          <button type="button" class="btn-back" id="back-btn">← Back</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <footer style="text-align:center; padding: 28px 24px; font-size:12px; color:#888; background:var(--cream); border-top:1px solid #ede0cc;">
+    <a href="https://www.theleadingedge.life/pages/terms" target="_blank" style="color:#888; text-decoration:none; margin:0 12px;">Terms of Service</a>
+    <a href="https://www.theleadingedge.life/pages/privacy-policy" target="_blank" style="color:#888; text-decoration:none; margin:0 12px;">Privacy Policy</a>
+  </footer>
+
+  <script is:inline>
+    const overlay = document.getElementById('modal-overlay');
+
+    function openModal() {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function showStep(n) {
+      const isStep2 = n === 2;
+      document.getElementById('step-1').style.display = isStep2 ? 'none' : 'block';
+      document.getElementById('step-2').style.display = isStep2 ? 'block' : 'none';
+      document.getElementById('modal-eyebrow').textContent = 'Step ' + n + ' of 2';
+      document.getElementById('modal-title').textContent  = isStep2 ? 'Tell Us About You' : 'Your Contact Info';
+      document.getElementById('modal-sub').textContent    = isStep2 ? 'Almost there.' : 'Quick and easy. No obligation.';
+      // dots
+      document.getElementById('dot-1').className = 'step-dot ' + (isStep2 ? 'step-dot--done' : 'step-dot--active');
+      document.getElementById('dot-2').className = 'step-dot ' + (isStep2 ? 'step-dot--active' : '');
+      document.querySelector('.step-line').className = 'step-line ' + (isStep2 ? 'step-line--done' : '');
+      // scroll modal to top
+      document.querySelector('.modal').scrollTop = 0;
+    }
+
+    // CTA buttons
+    document.getElementById('hero-cta').addEventListener('click', openModal);
+    document.getElementById('checklist-cta').addEventListener('click', openModal);
+    document.getElementById('final-cta').addEventListener('click', openModal);
+
+    // Close
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+    // Step 1 → Step 2
+    document.getElementById('next-btn').addEventListener('click', function() {
+      const form    = document.getElementById('discovery-form');
+      const errEl   = document.getElementById('error-1');
+      const firstName = form.firstName.value.trim();
+      const lastName  = form.lastName.value.trim();
+      const email     = form.email.value.trim();
+      const phone     = form.phone.value.trim();
+      if (!firstName || !lastName || !email || !phone) {
+        errEl.style.display = 'block'; return;
+      }
+      errEl.style.display = 'none';
+      showStep(2);
+    });
+
+    // Step 2 → back
+    document.getElementById('back-btn').addEventListener('click', function() { showStep(1); });
+
+    // Submit
+    document.getElementById('discovery-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form        = e.target;
+      const errEl       = document.getElementById('error-2');
+      const btn         = document.getElementById('submit-btn');
+      const occupation  = form.occupation.value.trim();
+      const frustration = form.frustration.value;
+      const helpWith    = form.helpWith.value.trim();
+      const incomeRange = form.incomeRange.value;
+
+      if (!occupation || !frustration || !helpWith || !incomeRange) {
+        errEl.style.display = 'block'; return;
+      }
+      errEl.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
+      const payload = {
+        firstName:   form.firstName.value.trim(),
+        lastName:    form.lastName.value.trim(),
+        email:       form.email.value.trim(),
+        phone:       form.phone.value.trim(),
+        occupation, frustration, helpWith, incomeRange,
+      };
+
+      try {
+        const res  = await fetch('/api/submit-application', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        const params = new URLSearchParams(payload);
+        window.location.href = (data.qualified ? '/booking-qualified' : '/booking-nq')
+          + '?' + params.toString();
+      } catch {
+        const params = new URLSearchParams(payload);
+        window.location.href = (incomeRange === 'over_50k' ? '/booking-qualified' : '/booking-nq')
+          + '?' + params.toString();
+      }
+    });
+  </script>
+
+</body>
+</html>
