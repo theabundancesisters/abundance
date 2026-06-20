@@ -1,0 +1,155 @@
+---
+export const prerender = true;
+
+export function getStaticPaths() {
+  const ADS = [
+    { id: "window-pivot-1a", image: "Window Pivot 1A.png" },
+    { id: "window-pivot-1b", image: "Window Pivot 1B.png" },
+    { id: "window-pivot-1c", image: "Window Pivot 1C.png" },
+    { id: "window-pivot-1d", image: "Window Pivot 1D.png" },
+    { id: "window-pivot-1e", image: "Window Pivot 1E.png" },
+    { id: "mirror-reflection-2a", image: "Mirror Reflection 2A.png" },
+    { id: "mirror-reflection-2b", image: "Mirror Reflection 2B.png" },
+    { id: "mirror-reflection-2c", image: "Mirror Reflection 2C.png" },
+    { id: "nature-threshold-3a", image: "Nature Threshold 3A.png" },
+    { id: "nature-threshold-3b", image: "Nature Threshold 3B.png" },
+    { id: "nature-threshold-3c", image: "Nature Threshold 3C.png" },
+    { id: "nature-threshold-3d", image: "Nature Threshold 3D.png" },
+    { id: "nature-threshold-3e", image: "Nature Threshold 3E.png" },
+    { id: "nature-threshold-3f", image: "Nature Threshold 3F.png" },
+    { id: "nature-threshold-3g", image: "Nature Threshold 3G.png" },
+    { id: "nature-threshold-3h", image: "Nature Threshold 3H.png" },
+    { id: "sunlit-desk-4a", image: "Sunlit Desk Release 4A.png" },
+    { id: "sunlit-desk-4b", image: "Sunlit Desk Release 4B.png" },
+    { id: "sunlit-desk-4c", image: "Sunlit Desk Release 4C.png" },
+    { id: "sunlit-desk-4d", image: "Sunlit Desk Release 4D.png" },
+    { id: "sunlit-desk-4e", image: "Sunlit Desk Release 4E.png" },
+    { id: "sunlit-desk-4f", image: "Sunlit Desk Release 4F.png" },
+    { id: "journal-moment-5a", image: "Journal Moment 5A.png" },
+    { id: "journal-moment-5b", image: "Journal Moment 5B.png" },
+    { id: "journal-moment-5c", image: "Journal Moment 5C.png" },
+  ];
+  return ADS.map(({ id, image }) => ({ params: { id }, props: { image } }));
+}
+
+const { image } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad — Career Crossroads</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    background: #111;
+    font-family: 'Inter', sans-serif;
+  }
+  .ad {
+    width: 1080px;
+    height: 1080px;
+    display: flex;
+    overflow: hidden;
+  }
+  .ad-photo {
+    width: 627px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .ad-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ad-right {
+    flex: 1;
+    background: #2d1b3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 56px;
+    padding: 100px 56px 72px 52px;
+  }
+  .ad-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #c9a227;
+    margin-bottom: 22px;
+  }
+  .ad-pre {
+    font-family: 'Playfair Display', serif;
+    font-size: 76px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.05;
+  }
+  .ad-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 104px;
+    font-weight: 900;
+    color: #c9627a;
+    line-height: 0.95;
+    white-space: nowrap;
+  }
+  .ad-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-top: 20px;
+  }
+  .ad-guarantee {
+    font-family: 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 700;
+    font-style: italic;
+    color: #c9a227;
+    line-height: 1.2;
+  }
+  .ad-nodots {
+    font-family: 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+  }
+  .ad-cta {
+    background: linear-gradient(135deg, #c9a227, #e8c040);
+    color: #2d1b3d;
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    border-radius: 100px;
+    padding: 36px 48px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+  <div class="ad-photo">
+    <img src={`/images/ads/${image}`} alt="" />
+  </div>
+  <div class="ad-right">
+    <div>
+      <div class="ad-eyebrow">High Performing Professional Women</div>
+      <div class="ad-pre">Leave your</div>
+      <div class="ad-big">9-to-5.</div>
+      <div class="ad-sub">and create<br>purpose-driven work</div>
+      <div class="ad-guarantee">in 60 days,</div>
+      <div class="ad-nodots">or you don't pay.</div>
+    </div>
+    <div class="ad-cta">Book Your Free Session</div>
+  </div>
+</div>
+</body>
+</html>

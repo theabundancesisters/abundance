@@ -7,6 +7,8 @@ const ALLOWED = [
   "/booking-nq",
   "/fast-track-career",
   "/api/submit-application",
+  "/ad-preview",
+  "/ads",
 ];
 
 export const onRequest = defineMiddleware(({ url, redirect }, next) => {
