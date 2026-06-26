@@ -633,8 +633,8 @@ export const prerender = true;
             <label for="incomeRange">What is your general household income range? *</label>
             <select id="incomeRange" name="incomeRange" required>
               <option value="">Select a range…</option>
-              <option value="under_50k">Under $50k</option>
-              <option value="over_50k">Over $50k</option>
+              <option value="under_75k">Under $75k</option>
+              <option value="over_75k">Over $75k</option>
               <option value="not_applicable">Not applicable</option>
             </select>
           </div>
@@ -744,7 +744,7 @@ export const prerender = true;
           + '?' + params.toString();
       } catch {
         const params = new URLSearchParams(payload);
-        window.location.href = (incomeRange === 'over_50k' ? '/booking-qualified' : '/booking-nq')
+        window.location.href = (incomeRange === 'over_75k' ? '/booking-qualified' : '/booking-nq')
           + '?' + params.toString();
       }
     });
